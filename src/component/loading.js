@@ -1,3 +1,5 @@
+import { FaCircle } from "react-icons/fa";
+import Header from "./basics/header";
 
 
 export default function Login (){
@@ -23,15 +25,21 @@ export default function Login (){
         )}&response_type=token&show_dialog=true`;
     }
     return (
-        <div className='login'>
-            <div className='logo-du-site'>
-                <img src="https://img1.freepng.fr/20180528/ofw/kisspng-label-sticker-paper-red-circle-5b0ba642cd8ad8.9798758015274901148419.jpg" alt=""/>
+        <div>
+            <Header />
+            <div className='login'>
+                <div className="big-logo">
+                    <div className='big-logo-illustration'>
+                        <div><div></div></div>
+                    </div>
+                    <span>Dot it</span>
+                </div>
+                <div className="color-white">Savoir votre musique, importer depuis spotify, sous une interface différent et fascinant !</div>
+                <button
+                    onClick={handleClick}
+                    className='login-button'
+                >Login with spotify</button>
             </div>
-            <div>Savoir votre musique, importer depuis spotify, sous une interface différent et fascinant !</div>
-            <button
-                onClick={handleClick}
-                className='login-button'
-            >Login with spotify</button>
         </div>
     )
 }

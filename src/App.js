@@ -1,16 +1,15 @@
 import './App.css';
 import React, { useEffect, useState } from "react";
-import './App.css';
 import Login from './component/loading';
 import SpotifyWebApi from 'spotify-web-api-js'
-import Header from './component/basics/header.js'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './component/home';
+import { IconContext } from 'react-icons';
+
 
 function App(){
-
-  const [album, setAlbum] = useState([])
   const [token, setToken] = useState('')
   const [spotify, setSpotify]  = useState([])
-  // const spotifyApi = [];
 
   useEffect(()=>{
     const hash = window.location.hash;
@@ -26,14 +25,17 @@ function App(){
     console.log(spotifyApi);
   }, [])
 
-
-
-
   return (
-    <div className='App'>
-      <Header />
-      <Login />
-    </div>
+    <Router>
+      <IconContext.Provider value={{color: '#393938', size : '40px'}}>
+        <div className='App'>
+        </div>
+      </IconContext.Provider>
+      <Routes>
+        <Route exact path='/' element={<Login />}/>
+        <Route exact path="/home" element={<Home />}/>
+      </Routes>
+    </Router>
   )
 }
    
