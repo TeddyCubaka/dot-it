@@ -11,13 +11,40 @@ export default function Home (){
             <NavBarre />
             <div className="home-body">
                 <h2>Bonjour</h2>
-                <HelloCard />
-                <HelloCard />
+                <div className="hello-collection">
+                    <HelloCard />
+                    <HelloCard />
+                    <HelloCard />
+                    <HelloCard />
+                </div>
                 <h2>Vos album</h2>
-                <CollectionCard />
-                <CollectionCard />
-                <CollectionCard />
-                <CollectionCard />
+                <div className="collection-slider">
+                    <CollectionCard />
+                    <CollectionCard />
+                    <CollectionCard />
+                    <CollectionCard />
+                    <CollectionCard />
+                    <CollectionCard />
+                    <CollectionCard />
+                    <CollectionCard />
+                    <CollectionCard />
+                    <CollectionCard />
+                    <CollectionCard />
+                </div>
+                <h2>Vos album</h2>
+                <div className="collection-slider">
+                    <CollectionCard />
+                    <CollectionCard />
+                    <CollectionCard />
+                    <CollectionCard />
+                    <CollectionCard />
+                    <CollectionCard />
+                    <CollectionCard />
+                    <CollectionCard />
+                    <CollectionCard />
+                    <CollectionCard />
+                    <CollectionCard />
+                </div>
             </div>
         </div>
     )
