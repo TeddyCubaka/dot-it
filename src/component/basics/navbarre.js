@@ -8,7 +8,7 @@ export default function NavBarre (){
     return (
         <button className="nav-barre">
             <legend>
-                <Icon as={AiOutlineMenuFold} className="icon" size="25px" color="white"/>
+                <Icon as={AiOutlineMenuFold} size="25px" color="white"/>
             </legend>
             <div className="nav-list">
                 <div>

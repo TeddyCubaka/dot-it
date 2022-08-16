@@ -1,5 +1,5 @@
 import { Icon } from '@rsuite/icons';
-import { FaSearch, FaHeart, FaChevronDown, FaUserCircle } from 'react-icons/fa';
+import { FaSearch } from 'react-icons/fa';
 import UserInfo from './account-info';
 
 export default function Header() {

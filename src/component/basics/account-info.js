@@ -1,7 +1,7 @@
 import { FaChevronDown, FaUserCircle } from 'react-icons/fa';
 import { Icon } from '@rsuite/icons';
 
-export default function UserInfo (hide){
+export default function UserInfo (){
     return (
         <button className="user-info">
             <div className="user-info-icons">
