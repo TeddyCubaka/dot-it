@@ -3,7 +3,6 @@ import Header from "./basics/header";
 import HelloCard from "./basics/hello-card";
 import NavBarre from "./basics/navbarre";
 
-
 export default function Home (){
     return (
         <div className="home">
@@ -13,36 +12,9 @@ export default function Home (){
                 <h2>Bonjour</h2>
                 <div className="hello-collection">
                     <HelloCard />
-                    <HelloCard />
-                    <HelloCard />
-                    <HelloCard />
                 </div>
                 <h2>Vos album</h2>
                 <div className="collection-slider">
-                    <CollectionCard />
-                    <CollectionCard />
-                    <CollectionCard />
-                    <CollectionCard />
-                    <CollectionCard />
-                    <CollectionCard />
-                    <CollectionCard />
-                    <CollectionCard />
-                    <CollectionCard />
-                    <CollectionCard />
-                    <CollectionCard />
-                </div>
-                <h2>Vos album</h2>
-                <div className="collection-slider">
-                    <CollectionCard />
-                    <CollectionCard />
-                    <CollectionCard />
-                    <CollectionCard />
-                    <CollectionCard />
-                    <CollectionCard />
-                    <CollectionCard />
-                    <CollectionCard />
-                    <CollectionCard />
-                    <CollectionCard />
                     <CollectionCard />
                 </div>
             </div>

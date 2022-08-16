@@ -96,6 +96,7 @@ header > *{
 
 
 .logo{
+  margin: auto 20px;
   display: flex;
   align-items: center;
 }
@@ -104,10 +105,12 @@ header > *{
   color: red;
 }
 .user-info{
+  margin-right: 20px;
   border: none;
   border-radius: 41px;
   width: 265px;
   height: 58px;
+  background-color: #F5F5F5;
   transition : width 1s, height 1s, border-radius 1s;
   position : inline-block;
   display: flex;
@@ -151,11 +154,14 @@ strong{
   opacity: 0;
   transition: width 2s, height 2s, opacity 2s;
 }
-.search{
-  /* border : 2px solid white; */
-}
 .icon-search{
   transition: width 0.5s, height 0.5s, opacity 2s;
+}
+.search{
+  margin: auto 0px;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 .search:hover > .icon-search{
   width: 0px;
@@ -175,7 +181,7 @@ strong{
   padding-top: 10px;
   width: auto;
   min-width: 50px;
-  position: absolute;
+  position: fixed;
   border: none;
   background-color: #474746;
   display: flex;
@@ -215,6 +221,18 @@ strong{
   margin-left: 50px;
   min-height: 100vh;
 }
+.home-body>h2{
+  color: white;
+}
+.hello-collection{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: scroll;
+  overflow-y: hidden;
+}
+.hello-collection::-webkit-scrollbar{
+  display: none;
+}
 .hello-card{
   width: 500px;
   height: 80px;
@@ -249,6 +267,7 @@ strong{
   width: 250px;
   height: 354px;
   border-radius: 12px;
+  margin: 0px 20px;
   background-color: #474746;
   display: flex;
   flex-direction: column;
@@ -261,4 +280,12 @@ strong{
 }
 .collection-card > div > img{
   width: 220px;
+}
+.collection-slider{
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+.collection-slider::-webkit-scrollbar{
+  display: none;
 }

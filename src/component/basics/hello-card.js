@@ -3,6 +3,8 @@ import { FaPlayCircle } from 'react-icons/fa'
 import './images/disque.png'
 
 export default function HelloCard (){
+
+
     return (
         <div className='hello-card'>
             <div>

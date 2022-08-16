@@ -8,22 +8,27 @@ import { IconContext } from 'react-icons';
 
 
 function App(){
-  const [token, setToken] = useState('')
   const [spotify, setSpotify]  = useState([])
+  const [itema, setItema] = useState([])
+  const [vari, setVari] = useState('siuu')
 
   useEffect(()=>{
     const hash = window.location.hash;
     if(hash){
-      setToken(hash.substring(1).split('&')[0].split('=')[1])
+      localStorage.setItem('token', hash.substring(1).split('&')[0].split('=')[1])
     }
   }, [])
-  
-  useEffect(()=>{
-    setSpotify(require('spotify-web-api-js'));
-    const spotifyApi  =  new  SpotifyWebApi();
-    spotifyApi.setAccessToken(token) 
-    console.log(spotifyApi);
-  }, [])
+
+  // useEffect(()=>{
+  //   const  spotifyApi  =  new  SpotifyWebApi();
+  //   spotifyApi.setAccessToken(localStorage.getItem('token'))
+  //   console.log(spotifyApi.getMe());
+  //   const me = spotifyApi.getMe()
+  //   me.then((data) => setSpotify(data))
+
+  // }, [] )
+
+  // console.log(spotify)
 
   return (
     <Router>
