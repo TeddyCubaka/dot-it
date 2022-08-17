@@ -14,20 +14,16 @@ export default function UserInfo (){
         me.then((data) => setSpotify(data))
     
       }, [] )
-    
-    //   console.log(spotify)
 
     return (
         <div className="user-info">
             <div className="user-info-icons">
-                <div><img className='user-img' src={spotify.images[0].url} alt=""/></div>
+                <div className='me-image'><img className='user-img' src={spotify.images[0].url} alt="" /></div>
                 <Icon as={ FaChevronDown } size="15px"/>
             </div>
             <div className='user-details'>
-                <div>
-                <span className="indetif">Nom : </span>
-                <strong>{spotify.display_name}</strong></div>
-                <div><span className="indetif">Email :</span>{spotify.email}</div>
+                <div> <span className="indetif">Nom : </span><strong>{spotify.display_name}</strong> </div>
+                <div className='small-police'> <span className="indetif">Email :</span>{spotify.email}</div>
             </div>
             <button className='login-button hide'>Changer de compter</button>
         </div>

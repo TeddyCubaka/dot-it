@@ -4,15 +4,19 @@ import React from "react";
 import './images/disque.png'
 
 export default function HelloCard (elem){
-    return (
+    console.log(elem);
+    if(elem){return (
             <div className='hello-card'>
-                    <div>
-                        <img src={elem.elem.images[0].url} alt=""/>
-                        <h2>{elem.elem.name}</h2>
-                    </div>
-                    <div className='big-icon-play'>
-                        <Icon as={ FaPlayCircle } size='50px' color='red'/>
-                    </div>
+                <div>
+                    <img src={elem.elem.images[0].url} alt=""/>
+                    <h2>{elem.elem.name}</h2>
+                </div>
+                <div className='big-icon-play'>
+                    <Icon as={ FaPlayCircle } size='50px' color='red'/>
+                </div>
             </div>
-    )
+    )}
+    return <div className='hello-card'>siiuuuuuuuuui</div>
 }
+
+

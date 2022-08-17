@@ -7,7 +7,8 @@ import NavBarre from "./basics/navbarre";
 
 export default function Home (){
 
-    const [topArtiste, setTopArtiste ] = useState({items : [{name : "Teddy", images : [{url : '#'}]}]})
+    const [topArtiste, setTopArtiste ] = useState({items : [{name : "", images : [{url : ''}]}, {name : "", images : [{url : ''}]}, {name : "", images : [{url : ''}]}, {name : "", images : [{url : ''}]}, {name : "", images : [{url : ''}]}]})
+
     useEffect(()=>{
       const  spotifyApi  =  new  SpotifyWebApi();
       spotifyApi.setAccessToken(localStorage.getItem('token'))
@@ -15,6 +16,7 @@ export default function Home (){
       topArt.then((data)=> setTopArtiste(data))
   }, [])
 
+    console.log(topArtiste.items[0]);
     return (
         <div className="home">
             <Header />
