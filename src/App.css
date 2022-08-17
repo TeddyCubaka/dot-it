@@ -119,6 +119,10 @@ header > *{
   justify-content: space-around;
 
 }
+.user-img{
+  width: 50px;
+  height: 50 px;
+}
 .user-info:hover{
   width: 400px;
   height: 200px;
@@ -242,9 +246,11 @@ strong{
   align-items: center;
   color: #F5F5F5;
   border-radius: 4px;
+  justify-content: space-between;
 }
 .hello-card > div > img{
   width: 65px;
+  height: 65px;
 }
 .hello-card > div {
   margin: 7.5px;
@@ -253,9 +259,6 @@ strong{
   align-items: center;
 }
 .big-icon-play{
-  display: block;
-  position: relative;
-  right: -120px;
   opacity: 0;
   transition: 1s;
 }

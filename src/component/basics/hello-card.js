@@ -1,19 +1,18 @@
 import { Icon } from '@rsuite/icons'
 import { FaPlayCircle } from 'react-icons/fa'
+import React from "react";
 import './images/disque.png'
 
-export default function HelloCard (){
-
-
+export default function HelloCard (elem){
     return (
-        <div className='hello-card'>
-            <div>
-                <img src='https://www.thebackpackerz.com/wp-content/uploads/2018/09/damso-lithopedion-backpackerz.jpg' alt=""/>
+            <div className='hello-card'>
+                    <div>
+                        <img src={elem.elem.images[0].url} alt=""/>
+                        <h2>{elem.elem.name}</h2>
+                    </div>
+                    <div className='big-icon-play'>
+                        <Icon as={ FaPlayCircle } size='50px' color='red'/>
+                    </div>
             </div>
-            <h2>Titre de la chanson</h2>
-            <div className='big-icon-play'>
-                <Icon as={ FaPlayCircle } size='50px' color='red'/>
-            </div>
-        </div>
     )
 }
