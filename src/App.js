@@ -20,6 +20,13 @@ function App(){
     }
   }, [])
 
+  useEffect(()=>{
+    const  spotifyApi  =  new  SpotifyWebApi();
+    spotifyApi.setAccessToken(localStorage.getItem('token'))
+    if(spotifyApi)localStorage.setItem('spotify', spotifyApi)
+    // console.log(localStorage.getItem('spotify'));
+  }, [])
+
 
   return (
     <Router>

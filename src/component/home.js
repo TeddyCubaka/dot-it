@@ -12,6 +12,7 @@ export default function Home (){
     useEffect(()=>{
       const  spotifyApi  =  new  SpotifyWebApi();
       spotifyApi.setAccessToken(localStorage.getItem('token'))
+      console.log(spotifyApi);
       const topArt = spotifyApi.getMyTopArtists()
       topArt.then((data)=> setTopArtiste(data))
   }, [])
