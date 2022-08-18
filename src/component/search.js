@@ -7,22 +7,10 @@ import SpotifyWebApi from 'spotify-web-api-js'
 
 export default function Search(){
 
-    const input = useRef()
-    const obj = {tok : 'c\'est bon'}
-    const [genre, setGenre]=useState({artists : {
-        items : [
-            {
-                images : [
-                    {url : "#"}, {url : "#"}, {url : "#"}
-                ],
-                name : "Search",
-                type : "You'll found it",
-                genre : ['genre']
-            }
-        ]
-    }})
-    const [art, setArt]=  useState('lefa')
-    const [src, setSrc] = useState([])
+    const [genre, setGenre]=useState({})
+    const [art, setArt]=  useState('')
+    const [album, setAlbum] = useState({})
+    const [alb, setAlb] = useState('')
 
     useEffect(()=>{
       const  spotifyApi  =  new  SpotifyWebApi();
@@ -33,17 +21,22 @@ export default function Search(){
     
     const searcher = (e)=>{
         setArt(e.target.value)
+        setAlb(e.target.value)
     }
-    console.log(genre);
 
-    return (
-        <div>
-            <Header />
-            <div>
-                <input type='text' onChange={searcher}/>
-            </div>
-                {/* <img src={genre.album.items[0].images[0].url} alt=""/> */}
-                {/* {genre.artists.items[17].images[0] ? <img src={genre.artists.items[0].images[0].url}/> : <span>Siuuuu</span>} */}
+    useEffect(()=>{
+        const  spotifyApi  =  new  SpotifyWebApi();
+        spotifyApi.setAccessToken(localStorage.getItem('token'))
+        const topArt = spotifyApi.searchAlbums(alb)
+        topArt.then((data)=> setAlbum(data))
+    }, [alb])
+
+    console.log(album);
+    
+    const Artists = () => {
+        return (
+            <>
+            <h1>Artistes</h1>
             <div className="afficher">
                 {
                     genre.artists.items.map((art)=>
@@ -60,6 +53,46 @@ export default function Search(){
                         </>                    
                     )
                 }
+            </div>
+            </>
+        )
+    }
+    const Albums = () => {
+        return(
+            <>
+            <h1>Albums</h1>
+            <div className="afficher">
+            {
+                album.albums.items.map((albi)=>
+                    <>
+                        <div className="collection-card">
+                            <div>
+                                {albi.images[0] ? <img src={albi.images[0].url} alt=''/> : <img src="https://static.vecteezy.com/ti/vecteur-libre/p2/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg" alt=""/>}
+                            </div>
+                            <div>
+                                <h2>{albi.name}</h2>
+                                <div>Nous sommes sûr que vous allez aimez cette collections</div>
+                            </div>
+                        </div>
+                    </>                    
+                )
+            }
+            </div>
+            </>
+        )
+    }
+
+    return (
+        <div>
+            <Header />
+            <div>
+                <input type='text' onChange={searcher}/>
+            </div>
+            <div>
+                {genre.artists ? <Artists /> : <h2>Faites votre recherche ici</h2>}
+            </div>
+            <div>
+            {album.albums ? <Albums /> : <h2>Ouvrez votre recherche ici</h2>}
             </div>
         </div>
     )
