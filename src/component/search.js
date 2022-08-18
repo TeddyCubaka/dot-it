@@ -7,10 +7,10 @@ import SpotifyWebApi from 'spotify-web-api-js'
 
 export default function Search(){
 
-    const [genre, setGenre]=useState({})
-    const [art, setArt]=  useState('')
     const [album, setAlbum] = useState({})
     const [alb, setAlb] = useState('')
+    const [genre, setGenre]=useState({})
+    const [art, setArt]=  useState('')
 
     useEffect(()=>{
       const  spotifyApi  =  new  SpotifyWebApi();
@@ -30,8 +30,6 @@ export default function Search(){
         const topArt = spotifyApi.searchAlbums(alb)
         topArt.then((data)=> setAlbum(data))
     }, [alb])
-
-    console.log(album);
     
     const Artists = () => {
         return (
@@ -50,6 +48,7 @@ export default function Search(){
                                 <div>Nous sommes sûr que vous allez aimez cette collections</div>
                             </div>
                         </div>
+                        {/* <CollectionCard object={art}/> */}
                         </>                    
                     )
                 }

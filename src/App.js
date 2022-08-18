@@ -7,6 +7,7 @@ import Home from './component/home';
 import { IconContext } from 'react-icons';
 import Header from './component/basics/header';
 import Search from './component/search';
+import Playlist from './component/Playlist';
 
 
 function App(){
@@ -39,6 +40,7 @@ function App(){
         <Route exact path="/home" element={<Home />}/>
         <Route path='/:j' element={<Header  />}/>
         <Route path='/search' element={<Search />}/>
+        <Route path='/playlist' element={<Playlist />}/>
       </Routes>
     </Router>
   )
