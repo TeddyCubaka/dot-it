@@ -3,6 +3,7 @@ import { FaSearch } from 'react-icons/fa';
 import UserInfo from './account-info';
 import React, { useEffect, useRef, useState } from "react";
 import SpotifyWebApi from 'spotify-web-api-js'
+import { Link } from 'react-router-dom';
 
 export default function Header() {
 
@@ -30,10 +31,16 @@ export default function Header() {
                     </div>
                     <span>Dot It</span>
                 </div>
-                <div className='search'>
-                    <Icon as={FaSearch} color='#F5F5F5' size="30px" className='icon-search'/>
-                    {/* <input type="text" className="search-input" onChange={searcher}/> */}
-                </div>
+                <Link to="/search">
+                    <div className='search'>
+                            <Icon as={FaSearch} 
+                            color='#F5F5F5' 
+                            size="30px" 
+                            // className='icon-search'
+                            />
+                            {/* <input type="text" className="search-input" onChange={searcher}/> */}
+                    </div>
+                </Link>
                 <UserInfo />
         </header>
     );
