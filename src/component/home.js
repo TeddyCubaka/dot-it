@@ -4,6 +4,7 @@ import SpotifyWebApi from 'spotify-web-api-js'
 import Header from "./basics/header";
 import HelloCard from "./basics/hello-card";
 import NavBarre from "./basics/navbarre";
+import Music from "./basics/musique";
 
 export default function Home (){
 
@@ -18,21 +19,21 @@ export default function Home (){
 
 
     const [genre, setGenre]=useState({})
-    const [art, setArt]=  useState('black M')
+    // const [art, setArt]=  useState('black M')
 
     useEffect(()=>{
       const  spotifyApi  =  new  SpotifyWebApi();
       spotifyApi.setAccessToken(localStorage.getItem('token'))
       const topArt = spotifyApi.getMyTopTracks()
       topArt.then((data)=> setGenre(data))
-    }, [art])
+    }, [])
 
-    // console.log(genre.items[0].name);
 
     return (
         <div className="home">
             <Header />
             <NavBarre />
+            <Music />
             <div className="home-body">
                 <h2>Bonjour</h2>
                 <div className="hello-collection">

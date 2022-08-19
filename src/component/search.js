@@ -48,7 +48,6 @@ export default function Search(){
                                 <div>Nous sommes sûr que vous allez aimez cette collections</div>
                             </div>
                         </div>
-                        {/* <CollectionCard object={art}/> */}
                         </>                    
                     )
                 }

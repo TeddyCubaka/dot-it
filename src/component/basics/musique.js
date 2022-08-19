@@ -2,7 +2,7 @@ export default function Music (){
     return <div className='music'>
         <div>1</div>
         <div>
-            <h3>Titre</h3>
+            <div>Titre</div>
             <span>Artistes - album</span>
         </div>
         <p>

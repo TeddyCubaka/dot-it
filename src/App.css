@@ -308,9 +308,18 @@ strong{
   flex-wrap: wrap;
 }
 .music{
-  width: 500px;
+  width: 350px;
   color : white;
+  height: 60px;
   border: 1px solid white;
-  /* display: flex; */
-
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.music > p{
+  display: flex;
+  flex-direction: column;
+}
+.music > p > span{
+  margin: -6px;
 }

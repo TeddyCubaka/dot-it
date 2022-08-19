@@ -1,8 +1,18 @@
+import { useEffect, useState } from "react";
+import SpotifyWebApi from "spotify-web-api-js";
+
 export default function CollectionCard (object){
-    const objects = object;
-    console.log(objects);    
+    const objects = object;    
+
+
+
     return (
-        <div className="collection-card">
+        <div 
+        className="collection-card"
+        onClick={()=>{ 
+            console.log(objects.object.artists[0].id)
+         }}
+        >
             <div>
                 {objects.object.album.images ? <img src={object.object.album.images[0].url} alt=''/> : <img src="https://static.vecteezy.com/ti/vecteur-libre/p2/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg" alt=""/>}
             </div>
