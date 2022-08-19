@@ -12,6 +12,8 @@ export default function Search(){
     const [genre, setGenre]=useState({})
     const [art, setArt]=  useState('')
 
+    const url = 'https://wallpaperaccess.com/full/8135195.jpg'
+
     useEffect(()=>{
       const  spotifyApi  =  new  SpotifyWebApi();
       spotifyApi.setAccessToken(localStorage.getItem('token'))
@@ -62,17 +64,15 @@ export default function Search(){
             <div className="afficher">
             {
                 album.albums.items.map((albi)=>
-                    <>
-                        <div className="collection-card">
-                            <div>
-                                {albi.images[0] ? <img src={albi.images[0].url} alt=''/> : <img src="https://static.vecteezy.com/ti/vecteur-libre/p2/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg" alt=""/>}
-                            </div>
-                            <div>
-                                <h2>{albi.name}</h2>
-                                <div>Nous sommes sûr que vous allez aimez cette collections</div>
-                            </div>
+                    <div className="collection-card">
+                        <div>
+                            {albi.images[0] ? <img src={albi.images[0].url} alt=''/> : <img src="https://static.vecteezy.com/ti/vecteur-libre/p2/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg" alt=""/>}
                         </div>
-                    </>                    
+                        <div>
+                            <h2>{albi.name}</h2>
+                            <div>Nous sommes sûr que vous allez aimez cette collections</div>
+                        </div>
+                    </div>        
                 )
             }
             </div>
@@ -87,9 +87,19 @@ export default function Search(){
                 <input type='text' onChange={searcher}/>
             </div>
             <div>
-                {genre.artists ? <Artists /> : <h2>Faites votre recherche ici</h2>}
+                <div>
+                    {genre.artists ? <Artists /> : <h2>Faites votre recherche ici</h2>}
+                </div>
             </div>
-            <div>
+            <div
+                style={
+                    {
+                        backgroundImage : `URL(${url})`,
+                        color : 'white'
+                    
+                    }
+                }
+            >
             {album.albums ? <Albums /> : <h2>Ouvrez votre recherche ici</h2>}
             </div>
         </div>

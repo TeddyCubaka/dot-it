@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import SpotifyWebApi from 'spotify-web-api-js'
 import Login from './component/loading';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -11,9 +11,6 @@ import Playlist from './component/Playlist';
 
 
 function App(){
-  const [spotify, setSpotify]  = useState(['siuu'])
-  const [itema, setItema] = useState([])
-  const [vari, setVari] = useState('siuu')
 
   useEffect(()=>{
     const hash = window.location.hash;
@@ -32,7 +29,6 @@ function App(){
     <Router>
       <IconContext.Provider value={{color: '#393938', size : '40px'}}>
         <div className='App'>
-          {/* <GetMe /> */}
         </div>
       </IconContext.Provider>
       <Routes>

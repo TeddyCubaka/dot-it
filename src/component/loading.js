@@ -1,4 +1,3 @@
-import { FaCircle } from "react-icons/fa";
 import Header from "./basics/header";
 
 

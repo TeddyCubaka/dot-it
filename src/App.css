@@ -305,7 +305,11 @@ strong{
 }
 .afficher{
   display: flex;
-  flex-wrap: wrap;
+  overflow: scroll;
+  overflow-y: hidden;
+}
+.afficher::-webkit-scrollbar{
+  display: none;
 }
 .music{
   width: 350px;
@@ -322,4 +326,26 @@ strong{
 }
 .music > p > span{
   margin: -6px;
+}
+.track{
+  width: 450px;
+  height: 80px;
+  border: 1px solid white;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.track > button{
+  background-color: rgba(10,10,10, 0);
+  border: none;
+}
+.track > button > ul{
+  display: none;
+}
+.track > div {
+  width: 100%;
+}
+.track > h3{
+  margin: auto 40px;
 }
