@@ -7,8 +7,8 @@ import Home from './component/home';
 import { IconContext } from 'react-icons';
 import Header from './component/basics/header';
 import Search from './component/search';
-import Playlist from './component/Playlist';
 import Album from './component/albums';
+import ViewPlaylist from './component/viewPlaylist';
 
 
 function App(){
@@ -34,13 +34,11 @@ function App(){
       </IconContext.Provider>
       <Routes>
         <Route exact path='/' element={<Login />}/>
-        <Route exact path="/home" element={<Home />}>
-          {/* <Route path="/home/playlist" element={<Playlist />} /> */}
-        </Route>
+        <Route exact path="/home" element={<Home />}></Route>
         <Route path='/:j' element={<Header  />}/>
         <Route path='/search' element={<Search />}/>
-        <Route path='/playlist' element={<Playlist />}/>
-        <Route path='/albums' element={<Album />}/>
+        <Route path='/playlist' element={<ViewPlaylist />}/>
+        <Route path='/albums' element={<Album />}></Route>
       </Routes>
     </Router>
   )

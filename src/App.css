@@ -308,6 +308,7 @@ strong{
   display: none;
 }
 .afficher{
+  width: 100%;
   display: flex;
   overflow: scroll;
   overflow-y: hidden;

@@ -4,6 +4,7 @@ import Header from "./basics/header";
 import React, { useEffect, useRef, useState } from "react";
 import SpotifyWebApi from 'spotify-web-api-js'
 import NavBarre from "./basics/navbarre";
+import Playlist from "./Playlist";
 
 
 export default function Search(){
@@ -12,6 +13,9 @@ export default function Search(){
     const [alb, setAlb] = useState('')
     const [genre, setGenre]=useState({})
     const [art, setArt]=  useState('')
+    const [tracks, setTracks] = useState({})
+    const [tr, setTr] = useState({})
+
 
     const url = 'https://wallpaperaccess.com/full/8135195.jpg'
 
@@ -25,6 +29,7 @@ export default function Search(){
     const searcher = (e)=>{
         setArt(e.target.value)
         setAlb(e.target.value)
+        setTr(e.target.value)
     }
 
     useEffect(()=>{
@@ -33,15 +38,23 @@ export default function Search(){
         const topArt = spotifyApi.searchAlbums(alb)
         topArt.then((data)=> setAlbum(data))
     }, [alb])
+
+    useEffect(()=>{
+        const  spotifyApi  =  new  SpotifyWebApi();
+        spotifyApi.setAccessToken(localStorage.getItem('token'))
+        const topArt = spotifyApi.searchTracks(alb)
+        topArt.then((data)=> setTr(data))
+    }, [alb])
+
+    console.log(tr);
     
     const Artists = () => {
         return (
             <>
             <h1>Artistes</h1>
-            <div className="afficher">
+            <div className="collection-slider">
                 {
                     genre.artists.items.map((art)=>
-                        <>
                         <div className="collection-card">
                             <div>
                                 {art.images[0] ? <img src={art.images[0].url} alt=''/> : <img src="https://static.vecteezy.com/ti/vecteur-libre/p2/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg" alt=""/>}
@@ -51,7 +64,6 @@ export default function Search(){
                                 <div>Nous sommes sûr que vous allez aimez cette collections</div>
                             </div>
                         </div>
-                        </>                    
                     )
                 }
             </div>
@@ -62,7 +74,7 @@ export default function Search(){
         return(
             <>
             <h1>Albums</h1>
-            <div className="afficher">
+            <div className="collection-slider">
             {
                 album.albums.items.map((albi)=>
                     <div className="collection-card">
@@ -80,29 +92,46 @@ export default function Search(){
             </>
         )
     }
+    const Tracks = () => {
+        return (
+            <>
+            <h1>Musiques</h1>
+            <div className="afficher">
+                {
+                    tr.tracks.items.map((track)=>
+                        <div className="collection-card">
+                            <div>
+                                {track.images[0] ? <img src={track.images[0].url} alt=''/> : <img src="https://static.vecteezy.com/ti/vecteur-libre/p2/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg" alt=""/>}
+                            </div>
+                            <div>
+                                <h2>{track.name}</h2>
+                                <div>Nous sommes sûr que vous allez aimez cette collections</div>
+                            </div>
+                        </div>
+                    )
+                }
+            </div>
+            </>
+        )
+    }
 
     return (
         <div>
             <Header />
             <NavBarre />
-            <div>
-                <input type='text' onChange={searcher}/>
-            </div>
-            <div>
+            <div className="body" >
                 <div>
-                    {genre.artists ? <Artists /> : <h2>Faites votre recherche ici</h2>}
+                    <div>
+                        <input type='text' onChange={searcher}/>
+                    </div>
+                    <div className='collection-slider'>
+                            {genre.artists ? <Artists /> : <h2>Faites votre recherche ici</h2>}
+                    </div>
+                    <div className="collection-slider">
+                    {album.albums ? <Albums /> : <h2>Ouvrez votre recherche ici</h2>}
+                    </div>
                 </div>
-            </div>
-            <div
-                style={
-                    {
-                        backgroundImage : `URL(${url})`,
-                        color : 'white'
-                    
-                    }
-                }
-            >
-            {album.albums ? <Albums /> : <h2>Ouvrez votre recherche ici</h2>}
+                <Playlist />
             </div>
         </div>
     )

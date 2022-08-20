@@ -4,7 +4,6 @@ import React from "react";
 import './images/disque.png'
 
 export default function HelloCard (elem){
-    // console.log(elem);
     if(elem){return (
             <div className='hello-card'>
                 <div>
