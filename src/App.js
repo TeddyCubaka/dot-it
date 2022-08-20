@@ -33,7 +33,9 @@ function App(){
       </IconContext.Provider>
       <Routes>
         <Route exact path='/' element={<Login />}/>
-        <Route exact path="/home" element={<Home />}/>
+        <Route exact path="/home" element={<Home />}>
+          {/* <Route path="/home/playlist" element={<Playlist />} /> */}
+        </Route>
         <Route path='/:j' element={<Header  />}/>
         <Route path='/search' element={<Search />}/>
         <Route path='/playlist' element={<Playlist />}/>

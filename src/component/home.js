@@ -5,6 +5,9 @@ import Header from "./basics/header";
 import HelloCard from "./basics/hello-card";
 import NavBarre from "./basics/navbarre";
 import Music from "./basics/musique";
+import { Link, Routes, Route } from "react-router-dom";
+import Playlist from "./Playlist";
+import SpotifyPlayer from 'react-spotify-web-playback';
 
 export default function Home (){
 
@@ -27,19 +30,24 @@ export default function Home (){
       const topArt = spotifyApi.getMyTopTracks()
       topArt.then((data)=> setGenre(data))
     }, [])
-
+    // console.log(genre);
 
     return (
         <div className="home">
             <Header />
             <NavBarre />
-            <Music />
             <div className="home-body">
+                <Link to="/home/playlist">Playlist</Link>
                 <h2>Bonjour</h2>
                 <div className="hello-collection">
-                    <HelloCard elem={topArtiste.items[0]} />
+                    <Link to="/playlist" >
+                        <HelloCard elem={topArtiste.items[0]} />
+                    </Link>
                     <HelloCard elem={topArtiste.items[1]} />
                     <HelloCard elem={topArtiste.items[2]} />
+                    <HelloCard elem={topArtiste.items[3]} />
+                    <HelloCard elem={topArtiste.items[3]} />
+                    <HelloCard elem={topArtiste.items[3]} />
                     <HelloCard elem={topArtiste.items[3]} />
                 </div>
                 <h2>Vos chansons les plus écoutées</h2>
@@ -60,6 +68,12 @@ export default function Home (){
                         </div>  : <div>Genre is not defin</div>}
                 </div>
             </div>
+
+
+            <SpotifyPlayer
+                // token={localStorage.getItem('token')}
+                uris={["spotify:track:7DPQMoNUREqcRjlnbFh2cN"]}
+            />;
         </div>
     )
 }

@@ -3,6 +3,7 @@ import { FaHome, FaMusic } from "react-icons/fa";
 import {AiOutlineMenuFold} from "react-icons/ai"
 import {FiUser} from 'react-icons/fi'
 import {MdLibraryMusic} from 'react-icons/md'
+import { Link } from "react-router-dom";
 
 export default function NavBarre (){
     return (
@@ -12,20 +13,28 @@ export default function NavBarre (){
             </legend>
             <div className="nav-list">
                 <div>
-                    <Icon as={FaHome} size="30px" color="white" />
-                    <span>Accueil</span>
+                    <Link to='/home' className="link">
+                        <Icon as={FaHome} size="30px" color="white" />
+                        <span>Accueil</span>
+                    </Link>
                 </div>
                 <div>
-                    <Icon as={FaMusic} size="30px" color="white" />
-                    <span>Playlist</span>
+                    <Link to='/playlist' className="link">
+                        <Icon as={FaMusic} size="30px" color="white" />
+                        <span>Playlist</span>
+                    </Link>
                 </div>
                 <div>
-                    <Icon as={FiUser} size="30px" color="white" />
-                    <span>Artistes</span>
+                    <Link to='/Artistes' className="link">
+                        <Icon as={FiUser} size="30px" color="white" />
+                        <span>Artistes</span>
+                    </Link>
                 </div>
                 <div>
-                    <Icon as={MdLibraryMusic} size="30px" color="white" />
-                    <span>Albums</span>
+                    <Link to='/Albums' className="link">
+                        <Icon as={MdLibraryMusic} size="30px" color="white" />
+                        <span>Albums</span>
+                    </Link>
                 </div>
             </div>
         </button>

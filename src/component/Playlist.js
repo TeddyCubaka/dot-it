@@ -1,39 +1,91 @@
 import { useEffect, useState } from 'react';
+import { MdTrackChanges } from 'react-icons/md';
 import SpotifyWebApi from 'spotify-web-api-js';
 import Header from './basics/header';
 import Track from './basics/musique';
 
 export default function Playlist (){
 
-    const [arti, setArti] = useState("6Te49r3A6f5BiIgBRxH7FH")
-    const [getArtists, setGetArtistes] = useState({name : 'sheee'})
+    const [getArtistTopTracks, setGetArtistTopTracks] = useState({name : 'artiste', second : 'pour embêter'})
+    const [getAlbum, setGetAlbum] = useState({name : 'album'})
+    const [myPlaylist, setMyPlayList] = useState({name : 'my top tracks'})
+    const [tracks, setTracks] = useState([])
+
+    const [ident, setIdent] = useState('')
+    // setIdent(id);
 
     useEffect(()=>{
         const  spotifyApi  =  new  SpotifyWebApi();
         spotifyApi.setAccessToken(localStorage.getItem('token'))
-        const Album = spotifyApi.getArtistTopTracks("2z2TRvloJt4EfUNQp9rHAi", 'CD')
-        Album.then((data)=> setGetArtistes(data))
+        const Album = spotifyApi.getArtistTopTracks( `${ident}` , 'CD')
+        Album.then((data)=> setGetArtistTopTracks(data))
     }, [])
 
-    console.log(getArtists);
+    useEffect(()=>{
+        const  spotifyApi  =  new  SpotifyWebApi();
+        spotifyApi.setAccessToken(localStorage.getItem('token'))
+        const Album = spotifyApi.getAlbum(ident)
+        Album.then((data)=> setGetAlbum(data))
+    }, [])
+
+    useEffect(()=>{
+        const  spotifyApi  =  new  SpotifyWebApi();
+        spotifyApi.setAccessToken(localStorage.getItem('token'))
+        const Album = spotifyApi.getMyTopTracks('6Te49r3A6f5BiIgBRxH7FH')
+        Album.then((data)=> setMyPlayList(data))
+    }, [])
 
     return (
         <>
-            {/* {
-                getArtists.tracks ? 
-                       getArtists.tracks.map((track, index)=>
+            <h2>Vos titres likées</h2>
+            {
+                myPlaylist.items ? 
+                       myPlaylist.items.map((track, index)=>
                             <Track 
                             indece={index + 1 } 
                             trackName={track.name} 
                             artists={
                                 track.artists ? track.artists.map((art)=> <span>{art.name}</span>) : <span>no found</span>
                             } 
+                            album={getAlbum.name} 
+                            key={track.id}
+                            />
+                       )
+                 : <span></span>
+            }
+            <h2>Les tops de l'artistes</h2>
+            {
+                getArtistTopTracks.tracks ? 
+                       getArtistTopTracks.tracks.map((track, index)=>
+                            <Track 
+                            indece={index + 1 } 
+                            trackName={track.name} 
+                            artists={
+                                track.artists ? track.artists.map((art)=> <span key={art.id}>{art.name} ,</span>) : <span>no found</span>
+                            } 
                             album={track.album.name} 
                             key={track.id}
                             />
                        )
-                 : <span>sheeeesh</span>
-            } */}
+                 : <span></span>
+            }
+            <h2>Les tracks de l'album</h2>
+            {
+                getAlbum.tracks ? 
+                       getAlbum.tracks.items.map((track, index)=>
+                            <Track 
+                            indece={index + 1 } 
+                            trackName={track.name} 
+                            artists={
+                                track.artists ? track.artists.map((art)=> <span>{art.name}</span>) : <span>no found</span>
+                            } 
+                            album={getAlbum.name} 
+                            key={track.id}
+                            />
+                       )
+                 : <span></span>
+            }
+            
         </>
         
     )

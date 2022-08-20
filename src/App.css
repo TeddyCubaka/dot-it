@@ -202,7 +202,7 @@ strong{
   display: flex;
   flex-direction: column;
 }
-.nav-barre:focus > .nav-list > div > span{
+.nav-barre:focus > .nav-list  > div > .link > span{
   display: inline;
   color: white;
 }
@@ -217,14 +217,14 @@ strong{
 .nav-list{
   width: auto;
 }
-.nav-list > div{
+.nav-list > div > .link{
   margin: 40px 0px;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.nav-list > div > span{
+.nav-list > div > .link > span{
   font-size: 16px;
   font-weight: 600;
   display: none;
@@ -240,17 +240,21 @@ strong{
   color: white;
 }
 .hello-collection{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  min-width: 700px;
   overflow: scroll;
   overflow-y: hidden;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr; */
+  display: flex;
+  flex-wrap: wrap;
 }
 .hello-collection::-webkit-scrollbar{
   display: none;
 }
 .hello-card{
-  width: 500px;
-  height: 80px;
+  width: 300px;
+  height: 70px;
   background-color: #474746;
   margin: 20px;
   display: flex;
@@ -260,8 +264,8 @@ strong{
   justify-content: space-between;
 }
 .hello-card > div > img{
-  width: 65px;
-  height: 65px;
+  width: 40px;
+  height: 40px;
 }
 .hello-card > div {
   margin: 7.5px;

@@ -9,7 +9,7 @@ export default function HelloCard (elem){
             <div className='hello-card'>
                 <div>
                     <img src={elem.elem.images[0].url} alt=""/>
-                    <h2>{elem.elem.name}</h2>
+                    <h4>{elem.elem.name}</h4>
                 </div>
                 <div className='big-icon-play'>
                     <Icon as={ FaPlayCircle } size='50px' color='red'/>
