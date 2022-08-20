@@ -3,6 +3,7 @@ import CollectionCard from "./basics/collection-card";
 import Header from "./basics/header";
 import React, { useEffect, useRef, useState } from "react";
 import SpotifyWebApi from 'spotify-web-api-js'
+import NavBarre from "./basics/navbarre";
 
 
 export default function Search(){
@@ -83,6 +84,7 @@ export default function Search(){
     return (
         <div>
             <Header />
+            <NavBarre />
             <div>
                 <input type='text' onChange={searcher}/>
             </div>

@@ -4,7 +4,7 @@ import SpotifyWebApi from 'spotify-web-api-js';
 import Header from './basics/header';
 import Track from './basics/musique';
 
-export default function Playlist (){
+export default function Playlist ({title}){
 
     const [getArtistTopTracks, setGetArtistTopTracks] = useState({name : 'artiste', second : 'pour embêter'})
     const [getAlbum, setGetAlbum] = useState({name : 'album'})
@@ -36,8 +36,10 @@ export default function Playlist (){
     }, [])
 
     return (
-        <>
-            <h2>Vos titres likées</h2>
+        <div className='playlist'>
+            <h2> {title} </h2>
+            <div>
+
             {
                 myPlaylist.items ? 
                        myPlaylist.items.map((track, index)=>
@@ -53,7 +55,6 @@ export default function Playlist (){
                        )
                  : <span></span>
             }
-            <h2>Les tops de l'artistes</h2>
             {
                 getArtistTopTracks.tracks ? 
                        getArtistTopTracks.tracks.map((track, index)=>
@@ -69,7 +70,6 @@ export default function Playlist (){
                        )
                  : <span></span>
             }
-            <h2>Les tracks de l'album</h2>
             {
                 getAlbum.tracks ? 
                        getAlbum.tracks.items.map((track, index)=>
@@ -85,8 +85,8 @@ export default function Playlist (){
                        )
                  : <span></span>
             }
-            
-        </>
+            </div>
+        </div>
         
     )
 }
