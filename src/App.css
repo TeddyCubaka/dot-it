@@ -379,3 +379,21 @@ strong{
 .playlist > h2{
   position: sticky;
 }
+.header-bg-img{
+  color: white;
+  height: 192px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.header-header{
+  background-color: #03030398;
+  display: flex;
+  justify-content: space-between;
+}
+.header-details{
+  background-color: #03030398;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}

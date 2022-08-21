@@ -27,7 +27,7 @@ export default function Album (){
         topArt.then((data)=> setAlbums(data))
     }, [])
 
-    console.log(albums);
+    // console.log(genre)
 
     // getArtistAlbums   : "5f5mH9BDkeyXmDbzevu38d"
 

@@ -10,44 +10,26 @@ import Playlist from "./Playlist";
 export default function Search(){
 
     const [album, setAlbum] = useState({})
-    const [alb, setAlb] = useState('')
+    const [value, setValue] = useState('')
     const [genre, setGenre]=useState({})
-    const [art, setArt]=  useState('')
     const [tracks, setTracks] = useState({})
-    const [tr, setTr] = useState({})
 
-
-    const url = 'https://wallpaperaccess.com/full/8135195.jpg'
-
-    useEffect(()=>{
-      const  spotifyApi  =  new  SpotifyWebApi();
-      spotifyApi.setAccessToken(localStorage.getItem('token'))
-      const topArt = spotifyApi.searchArtists(art)
-      topArt.then((data)=> setGenre(data))
-    }, [art])
-    
     const searcher = (e)=>{
-        setArt(e.target.value)
-        setAlb(e.target.value)
-        setTr(e.target.value)
+        setValue(e.target.value)
     }
 
     useEffect(()=>{
         const  spotifyApi  =  new  SpotifyWebApi();
         spotifyApi.setAccessToken(localStorage.getItem('token'))
-        const topArt = spotifyApi.searchAlbums(alb)
-        topArt.then((data)=> setAlbum(data))
-    }, [alb])
-
-    useEffect(()=>{
-        const  spotifyApi  =  new  SpotifyWebApi();
-        spotifyApi.setAccessToken(localStorage.getItem('token'))
-        const topArt = spotifyApi.searchTracks(alb)
-        topArt.then((data)=> setTr(data))
-    }, [alb])
-
-    console.log(tr);
+        const topArt = spotifyApi.searchArtists(value)
+        topArt.then((data)=> setGenre(data))
+        const album = spotifyApi.searchAlbums(value)
+        album.then((data)=> setAlbum(data))
+        const tracks = spotifyApi.searchTracks(value)
+        tracks.then((data)=> setTracks(data))
+    }, [value])
     
+
     const Artists = () => {
         return (
             <>
@@ -61,7 +43,6 @@ export default function Search(){
                             </div>
                             <div>
                                 <h2>{art.name}</h2>
-                                <div>Nous sommes sûr que vous allez aimez cette collections</div>
                             </div>
                         </div>
                     )
@@ -95,17 +76,17 @@ export default function Search(){
     const Tracks = () => {
         return (
             <>
-            <h1>Musiques</h1>
+            <h1>Tracks</h1>
             <div className="afficher">
                 {
-                    tr.tracks.items.map((track)=>
+                    tracks.tracks.items.map((track)=>
                         <div className="collection-card">
                             <div>
-                                {track.images[0] ? <img src={track.images[0].url} alt=''/> : <img src="https://static.vecteezy.com/ti/vecteur-libre/p2/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg" alt=""/>}
+                                {track.album.images ? <img src={track.album.images[0].url} alt=''/> : <img src="https://static.vecteezy.com/ti/vecteur-libre/p2/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg" alt=""/>}
                             </div>
                             <div>
-                                <h2>{track.name}</h2>
-                                <div>Nous sommes sûr que vous allez aimez cette collections</div>
+                                <h4>{track.name} - {track.artists[0].name} </h4>
+                                {track.album ? <div> de l'abum {track.album.name} </div> : <div></div>}
                             </div>
                         </div>
                     )
@@ -125,10 +106,13 @@ export default function Search(){
                         <input type='text' onChange={searcher}/>
                     </div>
                     <div className='collection-slider'>
-                            {genre.artists ? <Artists /> : <h2>Faites votre recherche ici</h2>}
+                        {genre.artists ? <Artists /> : <h2>Faites votre recherche ici</h2>}
                     </div>
                     <div className="collection-slider">
-                    {album.albums ? <Albums /> : <h2>Ouvrez votre recherche ici</h2>}
+                        {album.albums ? <Albums /> : <h2>Ouvrez votre recherche ici</h2>}
+                    </div>
+                    <div> 
+                        {tracks.tracks ? <Tracks /> : <h2>Les tracks s'afficherons ici</h2>}
                     </div>
                 </div>
                 <Playlist />
@@ -136,5 +120,3 @@ export default function Search(){
         </div>
     )
 }
-    {/* <img src={genre.artists.items[index].images[0].url} alt=""/> */}
-    {/* <span>{art.images[2].height}</span> */}

@@ -49,8 +49,8 @@ export default function Home (){
                     <HelloCard elem={topArtiste.items[1]} />
                     <HelloCard elem={topArtiste.items[2]} />
                     <HelloCard elem={topArtiste.items[3]} />
-                    <HelloCard elem={topArtiste.items[4]} />
-                    <HelloCard elem={topArtiste.items[5]} />
+                    {/* <HelloCard elem={topArtiste.items[4]} />
+                    <HelloCard elem={topArtiste.items[5]} /> */}
                     
                 </div>
                 <h2>Vos chansons les plus écoutées</h2>
@@ -62,7 +62,10 @@ export default function Home (){
                 </div>
                 <h2>Vos artistes les plus écoutés</h2>
                 <div className="collection-slider">
-                    {topArtiste.items ? topArtiste.items.map((art)=> <CollectionCard object={art}/> ) : <span></span> }
+                    {topArtiste.items ? topArtiste.items.map((art)=> <CollectionCard 
+                    object={art}
+                    />
+                    ) : <span></span> }
                 </div>
             </div>
 
