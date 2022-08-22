@@ -13,6 +13,10 @@ header{
   display: flex;
   justify-content: space-between;
 }
+.bottom{
+  position: sticky;
+  bottom: 0px;
+}
 header > *{
   margin-top: 16px;
 }
@@ -164,13 +168,30 @@ strong{
   font-size: 20px;
 }
 .search-input{
-  width: 0px;
-  height: 0px;
-  opacity: 0;
-  transition: width 2s, height 2s, opacity 2s;
+  width: 350px;
+  height: 25px;
+  opacity: 1;
+  margin-left: 5px;
+  border: none;
+  border-left: 1.4px solid #B9B9B9;
+}
+.search-input:focus{
+  outline: none;
+  border-left: 1.4px solid #B9B9B9;
 }
 .icon-search{
   transition: width 0.5s, height 0.5s, opacity 2s;
+}
+.div-search{
+  margin: 30px;
+  border: 1px solid white;
+  width: 400px;
+  height: 35px;
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .search{
   margin: auto 0px;
@@ -178,6 +199,7 @@ strong{
   display: flex;
   align-items: center;
 }
+
 .search:hover > .icon-search{
   width: 0px;
   height: 0px;
@@ -293,11 +315,24 @@ strong{
   align-items: center;
   color: white;
 }
+.collection-card > .big-icon-play{
+  position: relative;
+  display: inline;
+  top: -178px;
+  left: 85px;
+  height: 0px;
+}
+.collection-card:hover > .big-icon-play{
+  opacity: 1;
+  transition: opacity 1s;
+}
+
 .collection-card > div{
   margin: 0px 15px;
 }
 .collection-card > div > img{
   width: 220px;
+  height: 220px;
 }
 .collection-slider{
   display: flex;
@@ -308,7 +343,7 @@ strong{
   display: none;
 }
 .afficher{
-  width: 100%;
+  width: auto;
   display: flex;
   overflow: scroll;
   overflow-y: hidden;
@@ -357,7 +392,7 @@ strong{
   width: 93.7vw;
   margin: auto 60px;
   display: grid;
-  grid-template-columns: auto 500px;
+  grid-template-columns: 61% 500px;
 }
 .playlist{
   background-color: #474746;

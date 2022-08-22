@@ -5,14 +5,18 @@ import React, { useEffect, useRef, useState } from "react";
 import SpotifyWebApi from 'spotify-web-api-js'
 import NavBarre from "./basics/navbarre";
 import Playlist from "./Playlist";
+import { Icon } from "@rsuite/icons";
+import { FaPlayCircle, FaSearch } from "react-icons/fa";
+import SpotifyWebPlayer from "react-spotify-web-playback/lib";
 
 
 export default function Search(){
 
     const [album, setAlbum] = useState({})
-    const [value, setValue] = useState('')
     const [genre, setGenre]=useState({})
     const [tracks, setTracks] = useState({})
+    const [value, setValue] = useState('teddy')
+    const [uris, setUris] = useState('')
 
     const searcher = (e)=>{
         setValue(e.target.value)
@@ -33,8 +37,8 @@ export default function Search(){
     const Artists = () => {
         return (
             <>
-            <h1>Artistes</h1>
-            <div className="collection-slider">
+            <h1>Artistes correspondant à votre recherche</h1>
+            <div className="afficher">
                 {
                     genre.artists.items.map((art)=>
                         <div className="collection-card">
@@ -54,8 +58,8 @@ export default function Search(){
     const Albums = () => {
         return(
             <>
-            <h1>Albums</h1>
-            <div className="collection-slider">
+            <h1>Albums correspondant à votre recherche</h1>
+            <div className="afficher">
             {
                 album.albums.items.map((albi)=>
                     <div className="collection-card">
@@ -63,8 +67,8 @@ export default function Search(){
                             {albi.images[0] ? <img src={albi.images[0].url} alt=''/> : <img src="https://static.vecteezy.com/ti/vecteur-libre/p2/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg" alt=""/>}
                         </div>
                         <div>
-                            <h2>{albi.name}</h2>
-                            <div>Nous sommes sûr que vous allez aimez cette collections</div>
+                            <h3>{albi.name}</h3>
+                            <div></div>
                         </div>
                     </div>        
                 )
@@ -76,17 +80,24 @@ export default function Search(){
     const Tracks = () => {
         return (
             <>
-            <h1>Tracks</h1>
+            <h1>Musiques trouvées</h1>
             <div className="afficher">
                 {
                     tracks.tracks.items.map((track)=>
-                        <div className="collection-card">
-                            <div>
+                        <div    
+                        className="collection-card"
+                        onClick={()=>setUris(track.uri)}
+                        key={track.id}
+                        >
+                            <div key={track.artists[0].name}>
                                 {track.album.images ? <img src={track.album.images[0].url} alt=''/> : <img src="https://static.vecteezy.com/ti/vecteur-libre/p2/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg" alt=""/>}
                             </div>
                             <div>
-                                <h4>{track.name} - {track.artists[0].name} </h4>
-                                {track.album ? <div> de l'abum {track.album.name} </div> : <div></div>}
+                                <h4 key={track.artists[0].id}>{track.name} - {track.artists[0].name} </h4>
+                                {track.album ? <div> <strong key={track.album.id}> Album :</strong> {track.album.name} </div> : <div></div>}
+                            </div>
+                            <div className='big-icon-play'>
+                                <Icon as={ FaPlayCircle } size='50px' color='red'/>
                             </div>
                         </div>
                     )
@@ -96,6 +107,7 @@ export default function Search(){
         )
     }
 
+    console.log(tracks);
     return (
         <div>
             <Header />
@@ -103,19 +115,33 @@ export default function Search(){
             <div className="body" >
                 <div>
                     <div>
-                        <input type='text' onChange={searcher}/>
-                    </div>
-                    <div className='collection-slider'>
-                        {genre.artists ? <Artists /> : <h2>Faites votre recherche ici</h2>}
-                    </div>
-                    <div className="collection-slider">
-                        {album.albums ? <Albums /> : <h2>Ouvrez votre recherche ici</h2>}
+                        <div className="div-search" >
+                            <Icon as={FaSearch} 
+                                color='black' 
+                                size="30px" 
+                                />
+                            <input type='text' onChange={searcher} className='search-input' />
+                        </div>
                     </div>
                     <div> 
                         {tracks.tracks ? <Tracks /> : <h2>Les tracks s'afficherons ici</h2>}
                     </div>
+                    <div>
+                        {genre.artists ? <Artists /> : <h2>Faites votre recherche ici</h2>}
+                    </div>
+                    <div>
+                        {album.albums ? <Albums /> : <h2>Ouvrez votre recherche ici</h2>}
+                    </div>
                 </div>
                 <Playlist />
+            </div>
+            <div className="bottom">
+                <SpotifyWebPlayer
+                    token={localStorage.getItem('token')}
+                    uris={[uris]}
+                    play={true}
+                    // autoPlay={true}
+                />;
             </div>
         </div>
     )

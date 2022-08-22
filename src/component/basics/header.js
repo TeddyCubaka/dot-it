@@ -7,22 +7,6 @@ import { Link } from 'react-router-dom';
 
 export default function Header() {
 
-    // const input = useRef()
-    // const [genre, setGenre]=useState([])
-    // const [art, setArt]=  useState('')
-
-    // useEffect(()=>{
-    //   const  spotifyApi  =  new  SpotifyWebApi();
-    //   spotifyApi.setAccessToken(localStorage.getItem('token'))
-    //   const topArt = spotifyApi.searchArtists(art)
-    //   topArt.then((data)=> setGenre(data))
-    // }, [art])
-    
-    // const searcher = (e)=>{
-    //     setArt(e.target.value)
-    //     // console.log();
-    // }
-
     return (
         <header>
                 <div className="logo">
@@ -31,17 +15,8 @@ export default function Header() {
                     </div>
                     <span>Dot It</span>
                 </div>
-                <Link to="/search">
-                    <div className='search'>
-                            <Icon as={FaSearch} 
-                            color='#F5F5F5' 
-                            size="30px" 
-                            // className='icon-search'
-                            />
-                            {/* <input type="text" className="search-input" onChange={searcher}/> */}
-                    </div>
-                </Link>
                 <UserInfo />
         </header>
     );
 }
+

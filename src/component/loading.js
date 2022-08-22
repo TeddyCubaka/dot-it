@@ -17,7 +17,15 @@ export default function Login (){
             'user-read-playback-position',
             'user-top-read',
             'user-follow-modify',
-            'user-follow-read'
+            'user-follow-read',
+            "playlist-read-collaborative",
+            "playlist-modify-public",
+            "playlist-read-private",
+            "playlist-modify-private",
+            "user-library-modify",
+            "user-library-read",
+            "app-remote-control",
+            "streaming"
         ]
         window.location.href = `${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUrl}&scope=${scope.join(
             " "
