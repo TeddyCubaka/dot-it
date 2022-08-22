@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SpotifyWebApi from 'spotify-web-api-js'
 import Login from './component/loading';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -9,6 +9,7 @@ import Header from './component/basics/header';
 import Search from './component/search';
 import Album from './component/albums';
 import ViewPlaylist from './component/viewPlaylist';
+import {urisContext} from './userContext/urisContext';
 
 
 function App(){
@@ -20,28 +21,26 @@ function App(){
     }
   }, [])
 
-  useEffect(()=>{
-    const  spotifyApi  =  new  SpotifyWebApi();
-    spotifyApi.setAccessToken(localStorage.getItem('token'))
-    if(spotifyApi)localStorage.setItem('spotify', spotifyApi)
-  }, [])
+  const [uris, setUris] = useState("spotify:track:2GiZ3sC2p1Cc2t2gbdMKsN")
 
   return (
-    <Router>
-      <IconContext.Provider value={{color: '#393938', size : '40px'}}>
-        <div className='App'>
-        </div>
-      </IconContext.Provider>
-      <Routes>
-        <Route exact path='/' element={<Login />}/>
-        <Route exact path="/home" element={<Home />}></Route>
-        <Route path='/:j' element={<Header  />}/>
-        <Route path='/search' element={<Search />}/>
-        <Route path='/playlist' element={<ViewPlaylist />}/>
-        <Route path='/albums' element={<Album />}></Route>
-      </Routes>
-    </Router>
+    <urisContext.Provider value={{uris, setUris}} >
+      <Router>
+          <div className='App'></div>
+        <Routes>
+          <Route exact path='/' element={<Login />}/>
+          <Route exact path="/home" element={<Home />}></Route>
+          <Route path='/:j' element={<Header  />}/>
+          <Route path='/search' element={<Search />}/>
+          <Route path='/playlist' element={<ViewPlaylist />}/>
+          <Route path='/albums' element={<Album />}></Route>
+        </Routes>
+      </Router>
+    </urisContext.Provider>
   )
 }
    
 export default App;
+
+// <uris.Provider value={uris}  props={Home}  >
+{/* </uris.Provider> */}

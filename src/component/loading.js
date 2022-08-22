@@ -5,7 +5,8 @@ export default function Login (){
 
     const handleClick = ()=>{
         const clientId = "7b5690c371ee4e86ae586449d5a95703"
-        const redirectUrl = 'https://dot-it.vercel.app/home'
+        // const redirectUrl = 'https://dot-it.vercel.app/home'
+        const redirectUrl = 'http://localhost:3000/home'
         const apiUrl = "https://accounts.spotify.com/authorize";
         const scope = [
             'user-read-email',

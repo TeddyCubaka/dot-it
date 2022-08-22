@@ -106,8 +106,6 @@ export default function Search(){
             </>
         )
     }
-
-    console.log(tracks);
     return (
         <div>
             <Header />
@@ -140,7 +138,6 @@ export default function Search(){
                     token={localStorage.getItem('token')}
                     uris={[uris]}
                     play={true}
-                    // autoPlay={true}
                 />;
             </div>
         </div>
