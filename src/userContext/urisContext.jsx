@@ -1,6 +1,5 @@
-import { createContext, useContext } from "react";
+import { createContext } from "react";
 
+const urisContext = createContext();
 
-const urisContext = createContext()
-
-export {urisContext}
+export { urisContext };
