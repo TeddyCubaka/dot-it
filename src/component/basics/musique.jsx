@@ -1,5 +1,6 @@
 import { Icon } from "@rsuite/icons";
 import { FiMoreVertical } from "react-icons/fi";
+import React from "react";
 
 export default function Track({ indece, trackName, artists, album }) {
   return (

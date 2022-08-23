@@ -1,9 +1,5 @@
-import { Icon } from "@rsuite/icons";
-import { FaSearch } from "react-icons/fa";
 import UserInfo from "./account-info";
-import React, { useEffect, useRef, useState } from "react";
-import SpotifyWebApi from "spotify-web-api-js";
-import { Link } from "react-router-dom";
+import React from "react";
 
 export default function Header() {
   return (
