@@ -9,13 +9,13 @@ header {
     position: fixed;
     top: 0px;
     background-color: #393938;
-    box-shadow: 0px 2px 4px black;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .user-info{
-    margin-right: 4px;
+    margin: auto;
     border-radius: 30px;
     width: 250px;
     height: 50px;
@@ -76,19 +76,45 @@ strong {
     height: 25px;
 }
 .nav-barre {
-    height: 200px;
+    margin: -60px 0px;
+    height: 25px;
     padding-top: 10px;
     width: 100%;
-    position: fixed;
-    background-color: #474746;
-    display: flex;
-    flex-direction: column;
+    box-shadow: 1px 1px 4px black;
 }
 .nav-barre > legend {
     display: none;
 }
-
-
+.nav-list{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.nav-list > div > .link {
+    margin: 0px 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-list > div > .link > span {
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+    display: inline;
+    color: white;
+}
+.nav-list > div > .link > .icon-search{
+    display: none;
+}
+.home{
+    margin-top: 130px;
+}
+.home-body {
+    margin-left: 20px;
+    min-height: 67vh;
+}
 
 
 
