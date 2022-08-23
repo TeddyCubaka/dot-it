@@ -1,11 +1,7 @@
 import CollectionCard from "./basics/collection-card";
 import React , { useEffect, useState } from "react";
 import SpotifyWebApi from "spotify-web-api-js";
-import Header from "./basics/header";
 import HelloCard from "./basics/hello-card";
-import NavBarre from "./basics/navbarre";
-// import SpotifyWebPlayer from "react-spotify-web-playback";
-// import { urisContext } from "../userContext/urisContext";
 
 export default function Home() {
   const [topArtiste, setTopArtiste] = useState({
@@ -35,8 +31,6 @@ export default function Home() {
 
   return (
     <div className="home">
-      <Header />
-      <NavBarre />
       <div className="home-body">
         <h2>Bonjour</h2>
         <div className="hello-collection">

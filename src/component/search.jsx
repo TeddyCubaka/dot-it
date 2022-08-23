@@ -1,7 +1,5 @@
-import Header from "./basics/header";
 import React, {  useEffect, useState } from "react";
 import SpotifyWebApi from "spotify-web-api-js";
-import NavBarre from "./basics/navbarre";
 import { Icon } from "@rsuite/icons";
 import {  FaSearch } from "react-icons/fa";
 import CollectionCard from "./basics/collection-card";
@@ -29,11 +27,8 @@ export default function Search() {
 
 
   return (
-    <div>
-      <Header />
-      <NavBarre />
-      <div className="body">
-        <div>
+    <div className="home">
+      <div className="home-body">
           <div>
             <div className="div-search">
               <Icon as={FaSearch} color="black" size="30px" />
@@ -66,7 +61,6 @@ export default function Search() {
                 </>
               : <span></span>}
           </div>
-        </div>
       </div>
     </div>
   );

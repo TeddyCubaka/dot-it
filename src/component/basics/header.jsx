@@ -14,7 +14,7 @@ export default function Header() {
       </div>
       {window.location.pathname !== "/" ?
       <UserInfo />
-      : <span></span>}
+      : false}
     </header>
   );
 }

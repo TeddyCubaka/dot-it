@@ -17,7 +17,7 @@ export default function CollectionCard(object) {
         ) : (
           <span></span>
         )}
-        {objects.object.images ? (
+        {objects.object.images && objects.object.images[0] ? (
           <img src={objects.object.images[0].url} />
         ) : (
           <span></span>

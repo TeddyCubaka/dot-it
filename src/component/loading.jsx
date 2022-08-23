@@ -1,4 +1,3 @@
-import Header from "./basics/header";
 import React   from "react";
 
 export default function Login() {
@@ -34,7 +33,6 @@ export default function Login() {
 
   return (
     <div>
-      <Header />
       <div className="login">
         <div className="big-logo">
           <div className="big-logo-illustration">

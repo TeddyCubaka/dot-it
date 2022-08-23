@@ -23,16 +23,14 @@ export default function UserInfo() {
         <div className="me-image">
           <img className="user-img" src={spotify.images[0].url} alt="" />
         </div>
-        <Icon as={FaChevronDown} size="15px" />
+        <Icon as={FaChevronDown} size="15px" className="user-icon"/>
       </div>
       <div className="user-details">
         <div>
-          {" "}
           <span className="indetif">Nom : </span>
           <strong>{spotify.display_name}</strong>{" "}
         </div>
         <div className="small-police">
-          {" "}
           <span className="indetif">Email :</span>
           {spotify.email}
         </div>

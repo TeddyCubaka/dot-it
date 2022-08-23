@@ -6,7 +6,7 @@ import React from "react";
 
 export default function NavBarre() {
   return (
-    <button className="nav-barre">
+    <div className="nav-barre">
       <legend>
         <Icon as={AiOutlineMenuFold} size="25px" color="white" />
       </legend>
@@ -17,24 +17,6 @@ export default function NavBarre() {
             <span>Accueil</span>
           </Link>
         </div>
-        {/* <div>
-                    <Link to="/playlist" className="link">
-                        <Icon as={FaMusic} size="30px" color="white" />
-                        <span>Playlist</span>
-                    </Link>
-                </div>
-                <div>
-                    <Link to="/Artistes" className="link">
-                        <Icon as={FiUser} size="30px" color="white" />
-                        <span>Artistes</span>
-                    </Link>
-                </div>
-                <div>
-                    <Link to="/Albums" className="link">
-                        <Icon as={MdLibraryMusic} size="30px" color="white" />
-                        <span>Albums</span>
-                    </Link>
-                </div> */}
         <div>
           <Link to="/search" className="link">
             <Icon
@@ -47,6 +29,6 @@ export default function NavBarre() {
           </Link>
         </div>
       </div>
-    </button>
+    </div>
   );
 }

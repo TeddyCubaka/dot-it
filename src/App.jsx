@@ -1,4 +1,5 @@
 import "./App.css";
+import "./mobile.css";
 import React, { useContext, useEffect, useState } from "react";
 import Login from "./component/loading";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -8,6 +9,7 @@ import Search from "./component/search";
 import ViewPlaylist from "./component/viewPlaylist";
 import { urisContext } from "./userContext/urisContext";
 import SpotifyWebPlayer from "react-spotify-web-playback/lib";
+import NavBarre from "./component/basics/navbarre";
 
 function App() {
   useEffect(() => {
@@ -26,6 +28,9 @@ function App() {
     <urisContext.Provider value={{ uris, setUris }}>
       <Router>
         <div className="App"></div>
+        <Header />
+        <NavBarre />
+
         <Routes>
           <Route exact path="/" element={<Login />} />
           <Route exact path="/home" element={<Home />}></Route>
@@ -37,6 +42,7 @@ function App() {
       {window.location.pathname !== "/" ? 
       <div className="bottom">
         <SpotifyWebPlayer
+          showSaveIcon={true}
           token={localStorage.getItem("token")}
           uris={[uris]}
           play={true}
