@@ -1,11 +1,11 @@
 import CollectionCard from "./basics/collection-card";
-import React , { useEffect, useState, useContext } from "react";
+import React , { useEffect, useState } from "react";
 import SpotifyWebApi from "spotify-web-api-js";
 import Header from "./basics/header";
 import HelloCard from "./basics/hello-card";
 import NavBarre from "./basics/navbarre";
-import SpotifyWebPlayer from "react-spotify-web-playback";
-import { urisContext } from "../userContext/urisContext";
+// import SpotifyWebPlayer from "react-spotify-web-playback";
+// import { urisContext } from "../userContext/urisContext";
 
 export default function Home() {
   const [topArtiste, setTopArtiste] = useState({
@@ -19,9 +19,7 @@ export default function Home() {
   });
   const [genre, setGenre] = useState({});
 
-  const { uris } = useContext(urisContext);
-
-  console.log(uris);
+  // const { uris } = useContext(urisContext);
 
   useEffect(() => {
     const spotifyApi = new SpotifyWebApi();
@@ -71,7 +69,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bottom">
+      {/* <div className="bottom">
         <SpotifyWebPlayer
           token={localStorage.getItem("token")}
           uris={[uris]}
@@ -79,7 +77,7 @@ export default function Home() {
           // autoPlay={true}
         />
         ;
-      </div>
+      </div> */}
     </div>
   );
 }

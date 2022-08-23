@@ -9,7 +9,6 @@ export default function CollectionCard(object) {
       className="collection-card"
       onClick={() => {
         setUris(objects.object.uri);
-        console.log(objects, objects.object.uri);
       }}
     >
       <div>

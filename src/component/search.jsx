@@ -1,18 +1,19 @@
 import Header from "./basics/header";
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import SpotifyWebApi from "spotify-web-api-js";
 import NavBarre from "./basics/navbarre";
-import Playlist from "./Playlist";
 import { Icon } from "@rsuite/icons";
-import { FaPlayCircle, FaSearch } from "react-icons/fa";
-import SpotifyWebPlayer from "react-spotify-web-playback/lib";
+import {  FaSearch } from "react-icons/fa";
+// import SpotifyWebPlayer from "react-spotify-web-playback/lib";
+import CollectionCard from "./basics/collection-card";
+// import { urisContext } from "../userContext/urisContext";
 
 export default function Search() {
   const [album, setAlbum] = useState({});
   const [genre, setGenre] = useState({});
   const [tracks, setTracks] = useState({});
   const [value, setValue] = useState("teddy");
-  const [uris, setUris] = useState("");
+  // const { uris } = useContext(urisContext);
 
   const searcher = (e) => {
     setValue(e.target.value);
@@ -82,53 +83,6 @@ export default function Search() {
       </>
     );
   };
-  const Tracks = () => {
-    return (
-      <>
-        <h1>Musiques trouvées</h1>
-        <div className="afficher">
-          {tracks.tracks.items.map((track) => (
-            <div
-              className="collection-card"
-              onClick={() => {
-                setUris(track.uri);
-                 console.log(track.uri);
-              }}
-              key={track.id}
-            >
-              <div key={track.artists[0].name}>
-                {track.album.images ? (
-                  <img src={track.album.images[0].url} alt="" />
-                ) : (
-                  <img
-                    src="https://static.vecteezy.com/ti/vecteur-libre/p2/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg"
-                    alt=""
-                  />
-                )}
-              </div>
-              <div>
-                <h4 key={track.artists[0].id}>
-                  {track.name} - {track.artists[0].name}{" "}
-                </h4>
-                {track.album ? (
-                  <div>
-                    {" "}
-                    <strong key={track.album.id}> Album :</strong>{" "}
-                    {track.album.name}{" "}
-                  </div>
-                ) : (
-                  <div></div>
-                )}
-              </div>
-              <div className="big-icon-play">
-                <Icon as={FaPlayCircle} size="50px" color="red" />
-              </div>
-            </div>
-          ))}
-        </div>
-      </>
-    );
-  };
   return (
     <div>
       <Header />
@@ -141,8 +95,8 @@ export default function Search() {
               <input type="text" onChange={searcher} className="search-input" />
             </div>
           </div>
-          <div>
-            {tracks.tracks ? <Tracks /> : <h2>Les tracks s`afficherons ici</h2>}
+          <div className="afficher">
+            {tracks.tracks ? tracks.tracks.items.map((track) => ( <CollectionCard object={track} key={track.id}/>)) : <span>Not existe</span>}
           </div>
           <div>
             {genre.artists ? <Artists /> : <h2>Faites votre recherche ici</h2>}
@@ -151,16 +105,14 @@ export default function Search() {
             {album.albums ? <Albums /> : <h2>Ouvrez votre recherche ici</h2>}
           </div>
         </div>
-        <Playlist />
       </div>
-      <div className="bottom">
+      {/* <div className="bottom">
         <SpotifyWebPlayer
           token={localStorage.getItem("token")}
           uris={[uris]}
           play={true}
         />
-        ;
-      </div>
+      </div> */}
     </div>
   );
 }
