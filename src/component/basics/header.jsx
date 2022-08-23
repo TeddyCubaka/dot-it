@@ -12,7 +12,9 @@ export default function Header() {
         </div>
         <span>Dot It</span>
       </div>
+      {window.location.pathname !== "/" ?
       <UserInfo />
+      : <span></span>}
     </header>
   );
 }

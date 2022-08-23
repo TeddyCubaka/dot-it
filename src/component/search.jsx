@@ -4,16 +4,13 @@ import SpotifyWebApi from "spotify-web-api-js";
 import NavBarre from "./basics/navbarre";
 import { Icon } from "@rsuite/icons";
 import {  FaSearch } from "react-icons/fa";
-// import SpotifyWebPlayer from "react-spotify-web-playback/lib";
 import CollectionCard from "./basics/collection-card";
-// import { urisContext } from "../userContext/urisContext";
 
 export default function Search() {
   const [album, setAlbum] = useState({});
   const [genre, setGenre] = useState({});
   const [tracks, setTracks] = useState({});
-  const [value, setValue] = useState("teddy");
-  // const { uris } = useContext(urisContext);
+  const [value, setValue] = useState("");
 
   const searcher = (e) => {
     setValue(e.target.value);
@@ -30,59 +27,7 @@ export default function Search() {
     tracks.then((data) => setTracks(data));
   }, [value]);
 
-  const Artists = () => {
-    return (
-      <>
-        <h1>Artistes correspondant à votre recherche</h1>
-        <div className="afficher">
-          {genre.artists.items.map((art) => (
-            <div className="collection-card" key={art.id}>
-              <div>
-                {art.images[0] ? (
-                  <img src={art.images[0].url} alt="" />
-                ) : (
-                  <img
-                    src="https://static.vecteezy.com/ti/vecteur-libre/p2/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg"
-                    alt=""
-                  />
-                )}
-              </div>
-              <div>
-                <h2>{art.name}</h2>
-              </div>
-            </div>
-          ))}
-        </div>
-      </>
-    );
-  };
-  const Albums = () => {
-    return (
-      <>
-        <h1>Albums correspondant à votre recherche</h1>
-        <div className="afficher">
-          {album.albums.items.map((albi) => (
-            <div className="collection-card" key={albi.id}>
-              <div>
-                {albi.images[0] ? (
-                  <img src={albi.images[0].url} alt="" />
-                ) : (
-                  <img
-                    src="https://static.vecteezy.com/ti/vecteur-libre/p2/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg"
-                    alt=""
-                  />
-                )}
-              </div>
-              <div>
-                <h3>{albi.name}</h3>
-                <div></div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </>
-    );
-  };
+
   return (
     <div>
       <Header />
@@ -95,24 +40,34 @@ export default function Search() {
               <input type="text" onChange={searcher} className="search-input" />
             </div>
           </div>
-          <div className="afficher">
-            {tracks.tracks ? tracks.tracks.items.map((track) => ( <CollectionCard object={track} key={track.id}/>)) : <span>Not existe</span>}
+          <div>
+            <h2>Les musique correspondant à votre recherche</h2>
+            <div className="afficher">
+              {tracks.tracks ? tracks.tracks.items.map((track) => ( <CollectionCard object={track} key={track.id}/>)) : <h1>Commencer votre recherche</h1>}
+            </div>
           </div>
           <div>
-            {genre.artists ? <Artists /> : <h2>Faites votre recherche ici</h2>}
+              {genre.artists ? 
+                <>
+                  <h2>Les artistes correspondant à votre recherche</h2>
+                  <div className="afficher">
+                      {genre.artists.items.map((art) => ( <CollectionCard object={art} key={art.id}/>))} 
+                  </div>
+                </>
+              : <span></span>}
           </div>
           <div>
-            {album.albums ? <Albums /> : <h2>Ouvrez votre recherche ici</h2>}
+              {album.albums ? 
+                <>
+                  <h2>Les albums correspondant à votre recherche</h2>
+                  <div className="afficher">
+                      { album.albums.items.map((albi) => ( <CollectionCard object={albi} key={albi.id}/>))}
+                  </div>
+                </>
+              : <span></span>}
           </div>
         </div>
       </div>
-      {/* <div className="bottom">
-        <SpotifyWebPlayer
-          token={localStorage.getItem("token")}
-          uris={[uris]}
-          play={true}
-        />
-      </div> */}
     </div>
   );
 }

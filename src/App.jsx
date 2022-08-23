@@ -20,7 +20,6 @@ function App() {
     }
   }, []);
 
-  // const { uris } = useContext(urisContext);
   const [uris, setUris] = useState(useContext(urisContext));
 
   return (
@@ -33,9 +32,9 @@ function App() {
           <Route path="/:j" element={<Header />} />
           <Route path="/search" element={<Search />} />
           <Route path="/playlist" element={<ViewPlaylist />} />
-          {/* <Route path="/albums" element={<Album />}></Route> */}
         </Routes>
       </Router>
+      {window.location.pathname !== "/" ? 
       <div className="bottom">
         <SpotifyWebPlayer
           token={localStorage.getItem("token")}
@@ -43,6 +42,8 @@ function App() {
           play={true}
         />
       </div>
+      : <span></span>}
+      
     </urisContext.Provider>
   );
 }

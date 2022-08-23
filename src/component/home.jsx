@@ -19,8 +19,6 @@ export default function Home() {
   });
   const [genre, setGenre] = useState({});
 
-  // const { uris } = useContext(urisContext);
-
   useEffect(() => {
     const spotifyApi = new SpotifyWebApi();
     spotifyApi.setAccessToken(localStorage.getItem("token"));
@@ -68,16 +66,6 @@ export default function Home() {
           )}
         </div>
       </div>
-
-      {/* <div className="bottom">
-        <SpotifyWebPlayer
-          token={localStorage.getItem("token")}
-          uris={[uris]}
-          play={true}
-          // autoPlay={true}
-        />
-        ;
-      </div> */}
     </div>
   );
 }
