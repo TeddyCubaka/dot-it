@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React , { useContext } from "react";
 import { urisContext } from "../../userContext/urisContext";
 
 export default function CollectionCard(object) {

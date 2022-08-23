@@ -1,7 +1,7 @@
-import { FaChevronDown, FaUserCircle } from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
 import { Icon } from "@rsuite/icons";
 import SpotifyWebApi from "spotify-web-api-js";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function UserInfo() {
   const [spotify, setSpotify] = useState({

@@ -142,7 +142,7 @@ export default function Search() {
             </div>
           </div>
           <div>
-            {tracks.tracks ? <Tracks /> : <h2>Les tracks s"afficherons ici</h2>}
+            {tracks.tracks ? <Tracks /> : <h2>Les tracks s&aposafficherons ici</h2>}
           </div>
           <div>
             {genre.artists ? <Artists /> : <h2>Faites votre recherche ici</h2>}

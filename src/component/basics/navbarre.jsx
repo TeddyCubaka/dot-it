@@ -1,14 +1,10 @@
 import { Icon } from "@rsuite/icons";
-import { FaHome, FaMusic, FaSearch } from "react-icons/fa";
+import { FaHome, FaSearch } from "react-icons/fa";
 import { AiOutlineMenuFold } from "react-icons/ai";
-import { FiUser } from "react-icons/fi";
-import { MdLibraryMusic } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import React from "react";
 
 export default function NavBarre() {
-  const [icon1, setIcon1] = useState(AiOutlineMenuFold);
-  // const [icon2, setIcon2] = useState("AiOutlineMenuFold")
   return (
     <button className="nav-barre">
       <legend>
