@@ -1,7 +1,9 @@
-import React , { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import SpotifyWebApi from "spotify-web-api-js";
 import Track from "./basics/musique";
-export default function Playlist() {
+import React from "react";
+
+export default function Playlist({ title }) {
   // const [getArtistTopTracks, setGetArtistTopTracks] = useState({
   //   name: "artiste",
   //   second: "pour embêter",
@@ -10,6 +12,7 @@ export default function Playlist() {
   const [myPlaylist, setMyPlayList] = useState({ name: "my top tracks" });
 
   // const [ident, setIdent] = useState("");
+
   // useEffect(() => {
   //   const spotifyApi = new SpotifyWebApi();
   //   spotifyApi.setAccessToken(localStorage.getItem("token"));
@@ -33,7 +36,7 @@ export default function Playlist() {
 
   return (
     <div className="playlist">
-      <h2>  </h2>
+      <h2> {title} </h2>
       <div>
         {myPlaylist.items ? (
           myPlaylist.items.map((track, index) => (
@@ -82,7 +85,7 @@ export default function Playlist() {
               trackName={track.name}
               artists={
                 track.artists ? (
-                  track.artists.map((art) => <span key={art.id}>{art.name}</span>)
+                  track.artists.map((art) => <span>{art.name}</span>)
                 ) : (
                   <span>no found</span>
                 )

@@ -1,8 +1,8 @@
 import { Icon } from "@rsuite/icons";
 import React , { useEffect, useState } from "react";
 import { FaLongArrowAltLeft } from "react-icons/fa";
-import SpotifyWebApi from "spotify-web-api-js";
 import Header from "./basics/header";
+import SpotifyWebApi from "spotify-web-api-js";
 import Track from "./basics/musique";
 import NavBarre from "./basics/navbarre";
 import Playlist from "./Playlist";

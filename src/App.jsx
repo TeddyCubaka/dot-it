@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Login from "./component/loading";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./component/home";
@@ -7,6 +7,7 @@ import Header from "./component/basics/header";
 import Search from "./component/search";
 import ViewPlaylist from "./component/viewPlaylist";
 import { urisContext } from "./userContext/urisContext";
+import SpotifyWebPlayer from "react-spotify-web-playback/lib";
 
 function App() {
   useEffect(() => {
@@ -19,7 +20,7 @@ function App() {
     }
   }, []);
 
-  const [uris, setUris] = useState("");
+  const [uris, setUris] = useState(useContext(urisContext));
 
   return (
     <urisContext.Provider value={{ uris, setUris }}>
@@ -31,16 +32,20 @@ function App() {
           <Route path="/:j" element={<Header />} />
           <Route path="/search" element={<Search />} />
           <Route path="/playlist" element={<ViewPlaylist />} />
-          {/* <Route path="/albums" element={<Album />}></Route> */}
         </Routes>
       </Router>
+      {window.location.pathname !== "/" ? 
+      <div className="bottom">
+        <SpotifyWebPlayer
+          token={localStorage.getItem("token")}
+          uris={[uris]}
+          play={true}
+        />
+      </div>
+      : <span></span>}
+      
     </urisContext.Provider>
   );
 }
 
 export default App;
-
-// <uris.Provider value={uris}  props={Home}  >
-{
-  /* </uris.Provider> */
-}

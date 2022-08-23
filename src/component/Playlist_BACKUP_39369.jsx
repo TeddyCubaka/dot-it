@@ -1,7 +1,21 @@
 import React , { useEffect, useState } from "react";
 import SpotifyWebApi from "spotify-web-api-js";
 import Track from "./basics/musique";
+import React from "react";
+
+<<<<<<< HEAD
 export default function Playlist() {
+  const [getArtistTopTracks, setGetArtistTopTracks] = useState({
+    name: "artiste",
+    second: "pour embêter",
+  });
+  const [getAlbum, setGetAlbum] = useState({ name: "album" });
+  const [myPlaylist, setMyPlayList] = useState({ name: "my top tracks" });
+
+  const [ident] = useState("");
+  // setIdent(id);
+=======
+export default function Playlist({ title }) {
   // const [getArtistTopTracks, setGetArtistTopTracks] = useState({
   //   name: "artiste",
   //   second: "pour embêter",
@@ -10,6 +24,8 @@ export default function Playlist() {
   const [myPlaylist, setMyPlayList] = useState({ name: "my top tracks" });
 
   // const [ident, setIdent] = useState("");
+>>>>>>> develop
+
   // useEffect(() => {
   //   const spotifyApi = new SpotifyWebApi();
   //   spotifyApi.setAccessToken(localStorage.getItem("token"));

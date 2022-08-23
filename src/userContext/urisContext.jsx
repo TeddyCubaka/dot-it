@@ -1,5 +1,5 @@
 import { createContext } from "react";
 
-const urisContext = createContext();
+const urisContext = createContext("");
 
 export { urisContext };

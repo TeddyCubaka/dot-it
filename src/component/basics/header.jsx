@@ -1,7 +1,6 @@
 import UserInfo from "./account-info";
 import React from "react";
 
-
 export default function Header() {
   return (
     <header>
@@ -13,7 +12,9 @@ export default function Header() {
         </div>
         <span>Dot It</span>
       </div>
+      {window.location.pathname !== "/" ?
       <UserInfo />
+      : <span></span>}
     </header>
   );
 }
