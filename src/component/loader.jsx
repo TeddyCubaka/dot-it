@@ -7,9 +7,9 @@ export default function Loader(){
     }, []);
     return <>
             {token ? 
-            <div className="loader">
+            false
+            : <div className="loader">
                 <div></div>
-            </div>
-            : <span></span>}
+            </div>}
         </>;
 }
