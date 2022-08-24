@@ -1,4 +1,5 @@
 import "./App.css";
+// import "./alternative-app.css";
 import "./mobile.css";
 import React, { useContext, useEffect, useState } from "react";
 import Login from "./component/loading";
