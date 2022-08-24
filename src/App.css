@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Script&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
 body {
   background-color: #393938;
   width: 100%;
@@ -84,7 +87,6 @@ header > * {
   width: 35px;
   border-radius: 30px;
 }
-
 .big-logo-illustration > div {
   border: 12px solid red;
   height: 100px;
@@ -101,6 +103,8 @@ header > * {
   border-radius: 70px;
 }
 .big-logo > span {
+  font-family: 'Nova Script';
+  text-align: center;
   font-weight: bolder;
   font-size: 40px;
   color: red;
@@ -112,6 +116,8 @@ header > * {
   align-items: center;
 }
 .logo > span {
+  font-family: 'Nova Script';
+  font-weight: 400;
   font-size: 40px;
   color: red;
 }
