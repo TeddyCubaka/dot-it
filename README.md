@@ -1,3 +1,8 @@
+# Bonjour et bienenu sur mon application des musiques Dot It !
+
+Cette application est fait en `React js`. Elle a était créée avec `create-react-app`, vous trouverai toutes les dépendances qu'a l'application toute en bas. Les test statique sont faites par `eslint` et `prettier` avec leur configuration par defaut, les icons sont tirés de `React icon`, les routage est fait avec `React-router-dom`. C'est tout pour le moment et à la prochaine pour plus d'info. 
+Amusez vous bien.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
