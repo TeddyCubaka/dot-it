@@ -32,10 +32,10 @@ export default function Login() {
   };
 
   return (
-    <div>
+    <div className="body">
       <div className="login">
-        <div className="big-logo">
-          <div className="big-logo-illustration">
+        <div className="big-logo logo">
+          <div className="big-logo-illustration logo-illustration">
             <div>
               <div></div>
             </div>
