@@ -24,6 +24,11 @@ header {
     font-size: small;
     transition: width 1s, height 1s, border-radius 1s;
 }
+.user-info:hover  {
+    width: 250px;
+    height: 50px;
+    border-radius: 30px;
+  }
 .user-info:hover > div > div > .indetif {
     display: none;
   }
@@ -112,10 +117,41 @@ strong {
     margin-top: 130px;
 }
 .home-body {
-    margin-left: 20px;
+    margin: auto 20px;
     min-height: 67vh;
 }
+.hello-collection {
+    width: 100%;
+    overflow: scroll;
+    overflow-y: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 
+}
+.hello-collection::-webkit-scrollbar {
+    display: block;
+  }
+.hello-card {
+    width: 300px;
+    height: 70px;
+    background-color: #474746;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    color: #f5f5f5;
+    border-radius: 4px;
+    justify-content: space-between;
+}
+.hello-card > div > img {
+    width: 40px;
+    height: 40px;
+}
+.hello-card > div {
+    margin: 7.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 

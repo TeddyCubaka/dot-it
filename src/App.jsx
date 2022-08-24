@@ -10,6 +10,7 @@ import ViewPlaylist from "./component/viewPlaylist";
 import { urisContext } from "./userContext/urisContext";
 import SpotifyWebPlayer from "react-spotify-web-playback/lib";
 import NavBarre from "./component/basics/navbarre";
+import Loader from "./component/loader";
 
 function App() {
   useEffect(() => {
@@ -37,6 +38,7 @@ function App() {
           <Route path="/:j" element={<Header />} />
           <Route path="/search" element={<Search />} />
           <Route path="/playlist" element={<ViewPlaylist />} />
+          <Route path="/loader" element={<Loader />} ></Route>
         </Routes>
       </Router>
       {window.location.pathname !== "/" ? 

@@ -25,7 +25,7 @@ export default function NavBarre() {
           </Link>
         </div>
         <div>
-          <Link to="/search" className="link">
+          <Link to="/loader" className="link">
             <Icon as={ CgProfile } color="#F5F5F5" size="30px" className="icon-search"/>
             <span>artistes</span>
           </Link>

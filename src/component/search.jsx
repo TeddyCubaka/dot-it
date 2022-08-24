@@ -3,6 +3,7 @@ import SpotifyWebApi from "spotify-web-api-js";
 import { Icon } from "@rsuite/icons";
 import {  FaSearch } from "react-icons/fa";
 import CollectionCard from "./basics/collection-card";
+import Loader from "./loader";
 
 export default function Search() {
   const [album, setAlbum] = useState({});
@@ -38,7 +39,7 @@ export default function Search() {
           <div>
             <h2>Les musique correspondant à votre recherche</h2>
             <div className="afficher">
-              {tracks.tracks ? tracks.tracks.items.map((track) => ( <CollectionCard object={track} key={track.id}/>)) : <h1>Commencer votre recherche</h1>}
+              {tracks.tracks ? tracks.tracks.items.map((track) => ( <CollectionCard object={track} key={track.id}/>)) : <Loader /> }
             </div>
           </div>
           <div>

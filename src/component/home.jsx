@@ -2,6 +2,7 @@ import CollectionCard from "./basics/collection-card";
 import React , { useEffect, useState } from "react";
 import SpotifyWebApi from "spotify-web-api-js";
 import HelloCard from "./basics/hello-card";
+import Loader from "./loader";
 
 export default function Home() {
   const [topArtiste, setTopArtiste] = useState({
@@ -13,7 +14,15 @@ export default function Home() {
       { name: "", images: [{ url: "" }] },
     ],
   });
-  const [genre, setGenre] = useState({});
+  const [genre, setGenre] = useState({
+    items: [
+      { name: "", images: [{ url: "" }] },
+      { name: "", images: [{ url: "" }] },
+      { name: "", images: [{ url: "" }] },
+      { name: "", images: [{ url: "" }] },
+      { name: "", images: [{ url: "" }] },
+    ]
+  });
 
   useEffect(() => {
     const spotifyApi = new SpotifyWebApi();
@@ -38,6 +47,8 @@ export default function Home() {
           <HelloCard elem={topArtiste.items[1]} />
           <HelloCard elem={topArtiste.items[2]} />
           <HelloCard elem={topArtiste.items[3]} />
+          <HelloCard elem={topArtiste.items[4]} />
+          <Loader />
         </div>
         <h2>Vos chansons les plus écoutées</h2>
         <div className="collection-slider">
@@ -48,7 +59,7 @@ export default function Home() {
               ))}
             </div>
           ) : (
-            <div>Genre is not defin</div>
+            <div></div>
           )}
         </div>
         <h2>Vos artistes les plus écoutés</h2>
@@ -56,7 +67,7 @@ export default function Home() {
           {topArtiste.items ? (
             topArtiste.items.map((art) => <CollectionCard object={art} key={art.id} />)
           ) : (
-            <span></span>
+            <div></div>
           )}
         </div>
       </div>
