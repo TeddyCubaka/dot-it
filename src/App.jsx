@@ -43,7 +43,7 @@ function App() {
         </Routes>
       </Router>
       {window.location.pathname !== "/" ? 
-      <div className="bottom">
+      <div className="bottom all-width">
         {localStorage.getItem("token") !== "" ? 
         <SpotifyWebPlayer
           showSaveIcon={true}
