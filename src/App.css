@@ -40,9 +40,17 @@
 .all-width{
   width: 100%;
 }
+.bg-light{
+  background-color: #4E4E50;
+}
+.disp-flex-col{
+  display: flex;
+  flex-direction: column;
+}
 
 .header{
   position: fixed;
+  top: 0px;
   width: 100%;
   height: 100px;
   background-color: #393938;
@@ -132,4 +140,44 @@
   width: 206px;
   height: 40px;
   margin: 10px auto;
+}
+.nav-barre{
+  margin: 80px 0px;
+  width: 60px;
+  position: fixed;
+  height: 90vh;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: width 1s;
+}
+.nav-list{
+  margin: 40px auto;
+  margin-left: 10px;
+}
+.nav-list > div{
+  margin: 20px 10px 20px 0px;
+}
+.nav-barre > legend{
+  width: 90%;
+  text-align: right;
+}
+.icon-legend{
+  transform: rotate(180deg);
+  transition: transform 1s;
+}
+.nav-barre:hover {
+  width: 180px;
+  transition: width 1s;
+}
+.nav-barre:hover > .nav-list > div > .link > .hide{
+  display: inline;
+  color: white;
+  margin: 10px;
+}
+.nav-barre:hover > .nav-list > div > .link{
+  text-decoration: none;
+}
+.nav-barre:hover > legend > .icon-legend{
+  transform: rotate(0deg);
 }
