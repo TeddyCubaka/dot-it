@@ -34,7 +34,7 @@ export default function Login() {
   return (
     <div className="body">
       <div className="login">
-        <div className="big-logo logo">
+        <div className="big-logo logo disp-flex-col">
           <div className="big-logo-illustration logo-illustration">
             <div>
               <div></div>
@@ -42,11 +42,11 @@ export default function Login() {
           </div>
           <span>Dot it</span>
         </div>
-        <div className="color-white">
+        <div className="text text-center strong">
           Savoir votre musique, importer depuis spotify, sous une interface
           différent et fascinant !
         </div>
-        <button onClick={handleClick} className="login-button">
+        <button onClick={handleClick} className="login-button button strong color-white">
           Login with spotify
         </button>
       </div>

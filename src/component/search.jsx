@@ -28,7 +28,7 @@ export default function Search() {
 
 
   return (
-    <div className="home">
+    <div className="body">
       <div className="home-body">
           <div>
             <div className="div-search">

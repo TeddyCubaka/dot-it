@@ -39,7 +39,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="home">
+    <div className="body">
       <div className="home-body">
         <h2>Bonjour</h2>
         <div className="hello-collection">
