@@ -41,7 +41,7 @@ function App() {
           <Route exact path="/home" element={<Home />}></Route>
           <Route path="/:j" element={<Header />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/playlist" element={<Playlist />} />
+          <Route path="/library" element={<Playlist />} />
           <Route path="/loader" element={<Loader />} ></Route>
         </Routes>
       </Router>

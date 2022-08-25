@@ -38,7 +38,7 @@ export default function Playlist() {
             />
           ))
         ) : (
-          <span></span>
+          <span>Not connect</span>
         )}
       </div>
     </div>

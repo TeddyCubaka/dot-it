@@ -238,20 +238,23 @@
   transform: rotate(180deg);
   transition: transform 1s;
 }
-.nav-barre:hover {
+.icon-legend:hover{
+  transform: scale(1.2);
+}
+.nav-barre-clique {
   width: 180px;
   transition: width 0.3s;
 }
-.nav-barre:hover > .nav-list > div > .link > .hide{
+.nav-barre-clique > .nav-list > div > .link > .hide{
   display: inline;
   color: white;
   margin: 10px;
 }
-.nav-barre:hover > .nav-list > div > .link{
+.nav-barre-clique > .nav-list > div > .link{
   text-decoration: none;
   margin-left: 15px;
 }
-.nav-barre:hover > legend > .icon-legend{
+.nav-barre-clique > legend > .icon-legend{
   transform: rotate(0deg);
 }
 .body{
