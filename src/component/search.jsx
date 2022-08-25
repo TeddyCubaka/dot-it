@@ -31,13 +31,13 @@ export default function Search() {
   return (
     <div className="body">
       <div className="home-body">
-          <div>
+          <div className="search-zone">
             <div className="div-search">
               <Icon as={FaSearch} color="black" size="30px" />
               <input type="text" onChange={searcher} className="search-input" />
             </div>
             <button 
-            className="button-sec search-btn"
+            className="button-sec search-btn strong color-white"
             onClick={()=>{
               setValue(Inputvalue);
             }}
