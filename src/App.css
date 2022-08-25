@@ -98,9 +98,19 @@
   border-radius: 30px;
 }
 .big-logo-illustration > div {
-    border: 3px solid red;
+  border: 3px solid red;
   height: 70px;
   width: 70px;
+}
+.zooming:hover{
+  transform: scale(1.2);
+}
+.text-h-30px{
+  line-height: 40px;
+}
+.disp-flex-nowrap{
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .logo > span{
@@ -174,7 +184,7 @@
   padding-top: 20px;
   display: flex;
   flex-direction: column;
-  transition: width 1s;
+  transition: width 0.3s;
 }
 .nav-list{
   margin: 40px auto;
@@ -193,7 +203,7 @@
 }
 .nav-barre:hover {
   width: 180px;
-  transition: width 1s;
+  transition: width 0.3s;
 }
 .nav-barre:hover > .nav-list > div > .link > .hide{
   display: inline;

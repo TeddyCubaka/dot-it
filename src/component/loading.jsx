@@ -42,7 +42,7 @@ export default function Login() {
           </div>
           <span>Dot it</span>
         </div>
-        <div className="text text-center strong">
+        <div className="text text-center strong .text-h-30px">
           Savoir votre musique, importer depuis spotify, sous une interface
           différent et fascinant !
         </div>
