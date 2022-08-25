@@ -10,9 +10,10 @@ export default function Search() {
   const [genre, setGenre] = useState({});
   const [tracks, setTracks] = useState({});
   const [value, setValue] = useState("");
+  const [Inputvalue, setInputValue] = useState("");
 
   const searcher = (e) => {
-    setValue(e.target.value);
+    setInputValue(e.target.value);
   };
 
   useEffect(() => {
@@ -35,10 +36,16 @@ export default function Search() {
               <Icon as={FaSearch} color="black" size="30px" />
               <input type="text" onChange={searcher} className="search-input" />
             </div>
+            <button 
+            className="button-sec search-btn"
+            onClick={()=>{
+              setValue(Inputvalue);
+            }}
+            >Rechercher</button>
           </div>
           <div>
             <h2>Les musique correspondant à votre recherche</h2>
-            <div className="afficher">
+            <div className="slider">
               {tracks.tracks ? tracks.tracks.items.map((track) => ( <CollectionCard object={track} key={track.id}/>)) : <Loader /> }
             </div>
           </div>
@@ -46,7 +53,7 @@ export default function Search() {
               {genre.artists ? 
                 <>
                   <h2>Les artistes correspondant à votre recherche</h2>
-                  <div className="afficher">
+                  <div className="slider">
                       {genre.artists.items.map((art) => ( <CollectionCard object={art} key={art.id}/>))} 
                   </div>
                 </>
@@ -56,7 +63,7 @@ export default function Search() {
               {album.albums ? 
                 <>
                   <h2>Les albums correspondant à votre recherche</h2>
-                  <div className="afficher">
+                  <div className="slider">
                       { album.albums.items.map((albi) => ( <CollectionCard object={albi} key={albi.id}/>))}
                   </div>
                 </>
