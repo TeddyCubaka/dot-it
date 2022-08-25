@@ -39,8 +39,8 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="body">
-      <div className="home-body">
+    <div className="home">
+      <div className="">
         <h2>Bonjour</h2>
         <div className="hello-collection slider">
           <HelloCard elem={topArtiste.items[0]} />
@@ -53,7 +53,7 @@ export default function Home() {
         <h2>Vos chansons les plus écoutées</h2>
         <div className="collection-slider">
           {genre.items ? (
-            <div className="collection-slider">
+            <div className="slider">
               {genre.items.map((track) => (
                 <CollectionCard object={track} key={track.id} />
               ))}
@@ -63,7 +63,7 @@ export default function Home() {
           )}
         </div>
         <h2>Vos artistes les plus écoutés</h2>
-        <div className="collection-slider">
+        <div className="slider">
           {topArtiste.items ? (
             topArtiste.items.map((art) => <CollectionCard object={art} key={art.id} />)
           ) : (

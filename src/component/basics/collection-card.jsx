@@ -1,16 +1,14 @@
+import { Icon } from "@rsuite/icons";
 import React , { useContext } from "react";
 import { urisContext } from "../../userContext/urisContext";
+import { FaPlayCircle } from "react-icons/fa";
 
 export default function CollectionCard(object) {
   const objects = object;
   const { setUris } = useContext(urisContext);
   return (
     <div
-      className="collection-card"
-      onClick={() => {
-        setUris(objects.object.uri);
-      }}
-    >
+      className="collection-card">
       <div>
         {objects.object.album ? (
           <img src={object.object.album.images[0].url} alt="" />
@@ -34,6 +32,14 @@ export default function CollectionCard(object) {
         ) : (
           <h5></h5>
         )}
+      </div>
+      <div 
+      className="big-icon-play"
+      onClick={() => {
+        setUris(objects.object.uri);
+      }}
+      >
+        <Icon as={FaPlayCircle} size="50px" color="red"/>
       </div>
     </div>
   );
