@@ -42,7 +42,7 @@ export default function Home() {
     <div className="body">
       <div className="home-body">
         <h2>Bonjour</h2>
-        <div className="hello-collection">
+        <div className="hello-collection slider">
           <HelloCard elem={topArtiste.items[0]} />
           <HelloCard elem={topArtiste.items[1]} />
           <HelloCard elem={topArtiste.items[2]} />

@@ -309,13 +309,13 @@ strong {
   justify-content: center;
   align-items: center;
 }
-.big-icon-play {
-  opacity: 0;
-  transition: 1s;
-}
 .hello-card:hover > .big-icon-play {
   opacity: 1;
   transition: opacity 1s;
+}
+.big-icon-play {
+  opacity: 0;
+  transition: 1s;
 }
 .collection-card {
   width: 250px;
