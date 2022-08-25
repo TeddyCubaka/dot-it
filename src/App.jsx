@@ -7,11 +7,12 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./component/home";
 import Header from "./component/basics/header";
 import Search from "./component/search";
-import ViewPlaylist from "./component/viewPlaylist";
+// import ViewPlaylist from "./component/viewPlaylist";
 import { urisContext } from "./userContext/urisContext";
 import SpotifyWebPlayer from "react-spotify-web-playback/lib";
 import NavBarre from "./component/basics/navbarre";
 import Loader from "./component/loader";
+import Playlist from "./component/Playlist";
 
 function App() {
   useEffect(() => {
@@ -40,7 +41,7 @@ function App() {
           <Route exact path="/home" element={<Home />}></Route>
           <Route path="/:j" element={<Header />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/playlist" element={<ViewPlaylist />} />
+          <Route path="/playlist" element={<Playlist />} />
           <Route path="/loader" element={<Loader />} ></Route>
         </Routes>
       </Router>

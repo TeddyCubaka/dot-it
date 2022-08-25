@@ -21,14 +21,14 @@ export default function CollectionCard(object) {
           <span></span>
         )}
       </div>
-      <div>
+      <div className="width-max disp-flex-col">
         {objects.object.name ? (
-          <h4>{objects.object.name} </h4>
+          <div className="strong">{objects.object.name} </div>
         ) : (
-          <h4>le nom de type</h4>
+          <div className="strong">le nom de type</div>
         )}
         {objects.object.artists ? (
-          <h5> {objects.object.artists[0].name} </h5>
+          <div className="small"> {objects.object.artists[0].name} </div>
         ) : (
           <h5></h5>
         )}
