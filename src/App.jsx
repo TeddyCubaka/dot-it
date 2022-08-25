@@ -31,7 +31,9 @@ function App() {
       <Router>
         <div className="App"></div>
         <Header />
+        {window.location.pathname !== "/" ?
         <NavBarre />
+        : false}
 
         <Routes>
           <Route exact path="/" element={<Login />} />
