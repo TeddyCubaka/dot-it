@@ -13,12 +13,12 @@ export default function Playlist() {
   useEffect(() => {
     const spotifyApi = new SpotifyWebApi();
     spotifyApi.setAccessToken(localStorage.getItem("token"));
-    (libraryId.type == "album" ? spotifyApi.getAlbum(libraryId).then((data) => setSearch(data))
+    (libraryId.type == "album" ? spotifyApi.getAlbum(libraryId.id).then((data) => setSearch(data))
     : false);
     (libraryId.type == "artist" ?  spotifyApi.getArtistTopTracks(libraryId.id , "CD").then((data) => setSearchArt(data)): false);
   }, [libraryId]);
 
-  console.log(searchArt);
+  console.log(search);
 
   return (
     <div className="home">
@@ -27,7 +27,7 @@ export default function Playlist() {
         {searchArt.tracks ? <img src={searchArt.tracks[0].album.images[0].url} alt=" " /> : false}
       </div>
       <div>
-        {search == {} ? (
+        {search.tracks ? (
           search.tracks.items.map((track, index) => (
             <Track
               indece={index + 1}
