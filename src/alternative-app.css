@@ -329,14 +329,14 @@ strong {
   align-items: center;
   color: white;
 }
-.collection-card > .big-icon-play {
+.collection-card > .link > .big-icon-play {
   position: relative;
   display: inline;
   top: -178px;
   left: 85px;
   height: 0px;
 }
-.collection-card:hover > .big-icon-play {
+.collection-card:hover > .link > .big-icon-play {
   opacity: 1;
   transition: opacity 1s;
 }

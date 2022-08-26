@@ -5,6 +5,7 @@ import HelloCard from "./basics/hello-card";
 import Loader from "./loader";
 
 export default function Home() {
+  
   const [topArtiste, setTopArtiste] = useState({
     items: [
       { name: "", images: [{ url: "" }] },

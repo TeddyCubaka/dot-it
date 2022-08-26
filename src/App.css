@@ -93,6 +93,13 @@
 .width-max{
   width: 90%;
 }
+.height-max{
+  height: 100%;
+}
+.link{
+  color: white;
+  text-decoration: none;
+}
 
 .header{
   position: fixed;
@@ -316,7 +323,7 @@
 }
 .collection-card {
   width: 250px;
-  height: 370px;
+  height: 355px;
   border-radius: 12px;
   margin: 0px 20px;
   background-color: #474746;
@@ -337,10 +344,10 @@
   opacity: 1;
   transition: opacity 1s;
 }
-.collection-card > div {
+.collection-card > .link > div {
   margin: 0px 15px;
 }
-.collection-card > div > img {
+.collection-card-img > img {
   margin-top: 15px;
   width: 220px;
   height: 220px;

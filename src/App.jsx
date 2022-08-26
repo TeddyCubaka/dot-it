@@ -13,7 +13,6 @@ import SpotifyWebPlayer from "react-spotify-web-playback/lib";
 import NavBarre from "./component/basics/navbarre";
 import Loader from "./component/loader";
 import Playlist from "./component/Playlist";
-
 function App() {
   useEffect(() => {
     const hash = window.location.hash;
@@ -26,9 +25,10 @@ function App() {
   }, []);
 
   const [uris, setUris] = useState(useContext(urisContext));
+  const [library, setLibrary] = useState(useContext(urisContext));
 
   return (
-    <urisContext.Provider value={{ uris, setUris }}>
+    <urisContext.Provider value={{ uris, setUris, library, setLibrary }}>
       <Router>
         <div className="App"></div>
         <Header />

@@ -11,13 +11,15 @@ export default function Playlist() {
   useEffect(() => {
     const spotifyApi = new SpotifyWebApi();
     spotifyApi.setAccessToken(localStorage.getItem("token"));
-    const Album = spotifyApi.getMyTopTracks();
+    const Album = spotifyApi.getArtistTopTracks("7lMgpN1tEBQKpRoUMKB8iw", "cd");
     Album.then((data) => setMyPlayList(data));
   }, []);
 
+  console.log(myPlaylist);
+
   return (
     <div className="home">
-      <h2>  </h2>
+      <h2> {myPlaylist.tracks[0].artists[0].name} </h2>
       <div>
         {myPlaylist.items ? (
           myPlaylist.items.map((track, index) => (
