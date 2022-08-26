@@ -6,14 +6,13 @@ import { urisContext } from "../../userContext/urisContext";
 import {  Link } from "react-router-dom";
 
 export default function HelloCard(elem) {
-  const { setUris } = useContext(urisContext);
+  const { setUris, setLibraryId } = useContext(urisContext);
     return (
       elem ? 
         <div 
         className="hello-card"
         onClick={()=>{
-          // setLibrary(elem);
-          console.log(elem);
+          setLibraryId({id : elem.elem.id , type : elem.elem.type, name : elem.elem.name});
         }}
         >
           <Link to="/library" className="link">
