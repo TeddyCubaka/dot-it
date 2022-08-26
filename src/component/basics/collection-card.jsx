@@ -14,7 +14,7 @@ export default function CollectionCard(object   ) {
       <Link to="/library" 
       className="link"
       onClick={()=>{
-        setLibraryId({id : object.object.id , type : object.object.type, name : object.object.name});
+        setLibraryId({id : object.object.id , type : object.object.type, name : objects.object.artists[0].name, album : object.object.album.name, path : window.location.pathname});
         }}
       >
         <div className="collection-card-img">

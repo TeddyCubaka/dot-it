@@ -1,4 +1,7 @@
+import { Icon } from "@rsuite/icons";
 import React, { useContext, useEffect, useState } from "react";
+import { FaLongArrowAltLeft } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import SpotifyWebApi from "spotify-web-api-js";
 import { urisContext } from "../userContext/urisContext";
 import Track from "./basics/musique";
@@ -20,10 +23,24 @@ export default function Playlist() {
 
   return (
     <div className="home">
-      <div>
-        {SearchAlbum.images ? <img src={SearchAlbum.images[0].url} alt=" " /> : false}
-        {searchArt.tracks ? <img src={searchArt.tracks[0].album.images[0].url} alt=" " /> : false}
-        {searchTrack.album ? <img src={searchTrack.album.images[0].url} alt=" " /> : false}
+      <div className="playlist-info">
+        <div>
+          <Link
+          to={libraryId.path ? libraryId.path : "/home"} 
+          className="link link-back">
+            <Icon as={FaLongArrowAltLeft} size="40px" color="white"
+            />
+          </Link>
+          <div className="playlist-names">
+            { libraryId.name ? <div className="title">{libraryId.name}</div> : <div className="title">Hola signorita</div>}
+            { libraryId.album ? <div className="strong">{libraryId.album}</div> : <div className="strong">Hola signorita</div>}
+          </div>
+        </div>
+        <div className="playlist-img">
+          {SearchAlbum.images ? <img src={SearchAlbum.images[0].url} alt=" " /> : false}
+          {searchArt.tracks ? <img src={searchArt.tracks[0].album.images[0].url} alt=" " /> : false}
+          {searchTrack.album ? <img src={searchTrack.album.images[0].url} alt=" " /> : false}
+        </div>
       </div>
       <div>
         {SearchAlbum.tracks ? (
