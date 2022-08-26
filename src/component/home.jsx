@@ -30,13 +30,9 @@ export default function Home() {
     spotifyApi.setAccessToken(localStorage.getItem("token"));
     const topArt = spotifyApi.getMyTopArtists();
     topArt.then((data) => setTopArtiste(data));
-  }, []);
-
-  useEffect(() => {
-    const spotifyApi = new SpotifyWebApi();
-    spotifyApi.setAccessToken(localStorage.getItem("token"));
-    const topArt = spotifyApi.getMyTopTracks();
-    topArt.then((data) => setGenre(data));
+    
+    const toTrack = spotifyApi.getMyTopTracks();
+    toTrack.then((data) => setGenre(data));
   }, []);
 
   return (
@@ -44,11 +40,11 @@ export default function Home() {
       <div className="">
         <h2>Bonjour</h2>
         <div className="hello-collection slider">
-          <HelloCard elem={topArtiste.items[0]} />
-          <HelloCard elem={topArtiste.items[1]} />
-          <HelloCard elem={topArtiste.items[2]} />
-          <HelloCard elem={topArtiste.items[3]} />
-          <HelloCard elem={topArtiste.items[4]} />
+          <HelloCard elem={topArtiste.items[0]} key={topArtiste.items[0].id}/>
+          <HelloCard elem={topArtiste.items[1]} key={topArtiste.items[1].id}/>
+          <HelloCard elem={topArtiste.items[2]} key={topArtiste.items[2].id}/>
+          <HelloCard elem={topArtiste.items[3]} key={topArtiste.items[3].id}/>
+          <HelloCard elem={topArtiste.items[4]} key={topArtiste.items[4].id}/>
           <Loader />
         </div>
         <h2>Vos chansons les plus écoutées</h2>

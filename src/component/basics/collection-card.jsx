@@ -4,13 +4,19 @@ import { urisContext } from "../../userContext/urisContext";
 import { FaPlayCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-export default function CollectionCard(object) {
+export default function CollectionCard(object   ) {
   const objects = object;
-  const { setUris } = useContext(urisContext);
+  const { setUris, setLibraryId } = useContext(urisContext);
   return (
     <div
-      className="collection-card">
-      <Link to="/playlist" className="link" >
+      className="collection-card"
+      >
+      <Link to="/library" 
+      className="link"
+      onClick={()=>{
+        setLibraryId({id : object.object.id , type : object.object.type, name : object.object.name});
+        }}
+      >
         <div className="collection-card-img">
           {objects.object.album ? (
             <img src={object.object.album.images[0].url} alt="" />

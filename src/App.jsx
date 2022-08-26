@@ -11,7 +11,6 @@ import Search from "./component/search";
 import { urisContext } from "./userContext/urisContext";
 import SpotifyWebPlayer from "react-spotify-web-playback/lib";
 import NavBarre from "./component/basics/navbarre";
-import Loader from "./component/loader";
 import Playlist from "./component/Playlist";
 function App() {
   useEffect(() => {
@@ -26,9 +25,10 @@ function App() {
 
   const [uris, setUris] = useState(useContext(urisContext));
   const [library, setLibrary] = useState(useContext(urisContext));
+  const [libraryId, setLibraryId] = useState(useContext(urisContext));
 
   return (
-    <urisContext.Provider value={{ uris, setUris, library, setLibrary }}>
+    <urisContext.Provider value={{ uris, setUris, library, setLibrary, libraryId, setLibraryId }}>
       <Router>
         <div className="App"></div>
         <Header />
@@ -42,7 +42,6 @@ function App() {
           <Route path="/:j" element={<Header />} />
           <Route path="/search" element={<Search />} />
           <Route path="/library" element={<Playlist />} />
-          <Route path="/loader" element={<Loader />} ></Route>
         </Routes>
       </Router>
       {window.location.pathname !== "/" ? 

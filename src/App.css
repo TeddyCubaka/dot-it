@@ -304,11 +304,12 @@
   align-items: center;
   justify-content: space-between;
 }
-.hello-card > div > img {
+.hello-card> .link > div > img {
   width: 40px;
   height: 40px;
 }
-.hello-card > div {
+.hello-card> .link  > div {
+  text-decoration: none;
   margin: 7.5px;
   display: flex;
   justify-content: center;

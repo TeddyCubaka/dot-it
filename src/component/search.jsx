@@ -46,7 +46,7 @@ export default function Search() {
           <div>
             <h2>Les musique correspondant à votre recherche</h2>
             <div className="slider">
-              {tracks.tracks ? tracks.tracks.items.map((track) => ( <CollectionCard object={track} key={track.id}/>)) : <Loader /> }
+              {tracks.tracks ? tracks.tracks.items.map((track) => ( <CollectionCard object={track} type={"track"} key={track.id}/>)) : <Loader /> }
             </div>
           </div>
           <div>
@@ -54,7 +54,7 @@ export default function Search() {
                 <>
                   <h2>Les artistes correspondant à votre recherche</h2>
                   <div className="slider">
-                      {genre.artists.items.map((art) => ( <CollectionCard object={art} key={art.id}/>))} 
+                      {genre.artists.items.map((art) => ( <CollectionCard object={art} type={"artist"} key={art.id}/>))} 
                   </div>
                 </>
               : <span></span>}
@@ -64,7 +64,7 @@ export default function Search() {
                 <>
                   <h2>Les albums correspondant à votre recherche</h2>
                   <div className="slider">
-                      { album.albums.items.map((albi) => ( <CollectionCard object={albi} key={albi.id}/>))}
+                      { album.albums.items.map((albi) => ( <CollectionCard object={albi} type={"album"} key={albi.id}/>))}
                   </div>
                 </>
               : <span></span>}
