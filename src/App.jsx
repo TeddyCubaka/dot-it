@@ -33,7 +33,7 @@ function App() {
         {localStorage.getItem("token") !== "" ? <NavBarre /> : false}
 
         <Routes>
-          <Route exact path="/" element={ localStorage.getItem("token") && localStorage.getItem("token") !== "" ? <Home /> : <Login />} />
+          <Route exact path="/" element={ localStorage.getItem("token") ? <Home /> : <Login />} />
           <Route exact path="/home" element={<Home />}></Route>
           <Route path="/:j" element={<Header />} />
           <Route path="/search" element={<Search />} />
