@@ -32,10 +32,16 @@ export default function Search() {
     <div className="body">
       <div className="home-body">
           <div className="search-zone">
-            <div className="div-search">
+            <form 
+            className="div-search"
+            onSubmit={(e)=>{
+              e.preventDefault();
+              setValue(Inputvalue);
+            }}
+            >
               <Icon as={FaSearch} color="black" size="30px" />
-              <input type="text" onChange={searcher} className="search-input" />
-            </div>
+              <input type="search" onChange={searcher} className="search-input" />
+            </form>
             <button 
             className="button-sec search-btn strong color-white"
             onClick={()=>{

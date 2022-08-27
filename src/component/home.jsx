@@ -2,7 +2,6 @@ import CollectionCard from "./basics/collection-card";
 import React , { useEffect, useState } from "react";
 import SpotifyWebApi from "spotify-web-api-js";
 import HelloCard from "./basics/hello-card";
-import Loader from "./loader";
 
 export default function Home() {
   
@@ -45,7 +44,6 @@ export default function Home() {
           <HelloCard elem={topArtiste.items[2]} key={topArtiste.items[2].id}/>
           <HelloCard elem={topArtiste.items[3]} key={topArtiste.items[3].id}/>
           <HelloCard elem={topArtiste.items[4]} key={topArtiste.items[4].id}/>
-          <Loader />
         </div>
         <h2>Vos chansons les plus écoutées</h2>
         <div className="collection-slider">
