@@ -16,10 +16,10 @@ function App() {
     if (hash) {
       localStorage.setItem(
         "token",
-        hash.substring(1).split("&")[0].split("=")[1],window.location.hash
+        hash.substring(1).split("&")[0].split("=")[1],
       );
     }
-  }, [window.location.hash]);
+  }, []);
 
   const [uris, setUris] = useState(useContext(urisContext));
   const [library, setLibrary] = useState(useContext(urisContext));
@@ -30,28 +30,26 @@ function App() {
       <Router>
         <div className="App"></div>
         <Header />
-        {localStorage.getItem("token") !== "" ? <NavBarre /> : false}
-
+        {window.location.pathname !== "/" ? <NavBarre /> : <span></span>}
         <Routes>
-          <Route exact path="/" element={ localStorage.getItem("token") ? <Home /> : <Login />} />
           <Route path="/:j" element={<Header />} />
+          <Route exact path="/" element={ <Login /> } />
+          <Route exact path="/home" element={ <Home /> } />
           <Route path="/search" element={<Search />} />
           <Route path="/library" element={<Playlist />} />
         </Routes>
       </Router>
-      {localStorage.getItem("token") ? 
-        <div className="bottom all-width">
-          {localStorage.getItem("token") && localStorage.getItem("token") !== "" ? 
-          <SpotifyWebPlayer
-            showSaveIcon={true}
-            token={localStorage.getItem("token")}
-            uris={[uris]}
-            play={true}
-          />
-          : false
-          }
-        </div>
-        : <span></span>}
+      {window.location.pathname == "/" ? 
+        false
+      : <div className="bottom all-width">
+            <SpotifyWebPlayer
+              showSaveIcon={true}
+              token={localStorage.getItem("token")}
+              uris={[uris]}
+              play={true}
+            />
+        </div>}
+
       
     </urisContext.Provider>
   );

@@ -204,6 +204,10 @@
 .user-info:hover > .hide{
   display: block;
 }
+.user-info:hover > .hide > .link{
+  height: 100%;
+  width: 100%;
+}
 .user-info:hover > div > div > .hide{
   display: inline;
 }

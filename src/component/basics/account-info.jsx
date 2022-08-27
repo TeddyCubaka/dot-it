@@ -36,13 +36,10 @@ export default function UserInfo() {
           {spotify.email}
         </div>
       </div>
-      <button className="login-button button strong color-white hide"
-      >
-      <Link 
-      onClick={()=>{
-        localStorage.setItem("token" , " ");
-      }}
-      to="/">Changer de compter</Link>
+      <button className="login-button button strong color-white hide" onClick={()=>{localStorage.removeItem("token");}}>
+        <Link  to="/" className="link">
+          Changer de compter
+        </Link>
       </button>
     </div>
   );
