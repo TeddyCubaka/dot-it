@@ -17,7 +17,7 @@ export default function NavBarre() {
       </legend>
       <div className="nav-list disp-flex-col">
         <div className="zooming">
-          <Link to="/home" className="link disp-flex-nowrap">
+          <Link to="/" className="link disp-flex-nowrap">
             <Icon as={FaHome} size="30px" color="white" className="icon-search" />
             <span className="hide strong">Accueil</span>
           </Link>

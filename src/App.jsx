@@ -34,7 +34,6 @@ function App() {
 
         <Routes>
           <Route exact path="/" element={ localStorage.getItem("token") ? <Home /> : <Login />} />
-          <Route exact path="/home" element={<Home />}></Route>
           <Route path="/:j" element={<Header />} />
           <Route path="/search" element={<Search />} />
           <Route path="/library" element={<Playlist />} />
