@@ -14,7 +14,7 @@ export default function Header() {
         </div>
         <span>Dot It</span>
       </div>
-      {localStorage.getItem("token") == "" ? <UserInfo />: false}
+      {localStorage.getItem("token") ? <UserInfo />: false}
       </>
       : <h2 className="text-center">Le token a expiré, veuillez vous reconnectez</h2>
       }
