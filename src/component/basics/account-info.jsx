@@ -2,6 +2,7 @@ import { FaChevronDown } from "react-icons/fa";
 import { Icon } from "@rsuite/icons";
 import SpotifyWebApi from "spotify-web-api-js";
 import React , { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function UserInfo() {
   const [spotify, setSpotify] = useState({
@@ -35,7 +36,14 @@ export default function UserInfo() {
           {spotify.email}
         </div>
       </div>
-      <button className="login-button button strong color-white hide">Changer de compter</button>
+      <button className="login-button button strong color-white hide"
+      >
+      <Link 
+      onClick={()=>{
+        localStorage.setItem("token" , " ");
+      }}
+      to="/">Changer de compter</Link>
+      </button>
     </div>
   );
 }

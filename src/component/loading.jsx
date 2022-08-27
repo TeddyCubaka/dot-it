@@ -3,7 +3,7 @@ import React from "react";
 export default function Login() {
   const handleClick = () => {
     const clientId = "7b5690c371ee4e86ae586449d5a95703";
-    const redirectUrl = (process.env.NODE_ENV == "development" ? "http://localhost:3000/home" : "https://dot-it.vercel.app/home");
+    const redirectUrl = (process.env.NODE_ENV == "development" ? "http://localhost:3000/" : "https://dot-it.vercel.app/home");
     const apiUrl = "https://accounts.spotify.com/authorize";
     const scope = [
       "user-read-email",

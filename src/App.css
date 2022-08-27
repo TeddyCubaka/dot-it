@@ -443,3 +443,13 @@
   flex-direction: column;
   justify-content: flex-end;
 }
+.relative-icon{
+  position: relative;
+  bottom: -200px;
+  right: 25px;
+  transition: color 1s;
+}
+.relative-icon:hover{
+  color: red;
+  transition: color 1s;
+}

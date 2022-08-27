@@ -4,39 +4,44 @@ import { urisContext } from "../../userContext/urisContext";
 import { FaPlayCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-export default function CollectionCard(object   ) {
-  const objects = object;
+export default function CollectionCard(object) {
   const { setUris, setLibraryId } = useContext(urisContext);
   return (
     <div
       className="collection-card"
       >
-      <Link to="/library" 
-      className="link"
+      <Link 
+      to="/library" 
       onClick={()=>{
-        setLibraryId({id : object.object.id , type : object.object.type, name : objects.object.artists[0].name, album : object.object.album.name, path : window.location.pathname});
-        }}
-      >
+        setLibraryId({id : object.object.id , 
+                      type : object.object.type, 
+                      name : object.object.artists ? object.object.artists[0].name : false, 
+                      album : object.object.album ? object.object.album.name : false,
+                      parentUri : object.object.uri,
+                      path : window.location.pathname});
+                      console.log(object.object);
+      }}
+      className="link">
         <div className="collection-card-img">
-          {objects.object.album ? (
+          {object.object.album ? (
             <img src={object.object.album.images[0].url} alt="" />
           ) : (
             <span></span>
           )}
-          {objects.object.images && objects.object.images[0] ? (
-            <img src={objects.object.images[0].url} />
+          {object.object.images && object.object.images[0] ? (
+            <img src={object.object.images[0].url} />
           ) : (
             <span></span>
           )}
         </div>
         <div className="width-max disp-flex-col height-max">
-          {objects.object.name ? (
-            <div className="strong">{objects.object.name} </div>
+          {object.object.name ? (
+            <div className="strong">{object.object.name} </div>
           ) : (
             <div className="strong">le nom de type</div>
           )}
-          {objects.object.artists ? (
-            <div className="small"> {objects.object.artists[0].name} </div>
+          {object.object.artists ? (
+            <div className="small"> {object.object.artists[0].name} </div>
           ) : (
             <h5></h5>
           )}
@@ -45,7 +50,7 @@ export default function CollectionCard(object   ) {
         <div 
         className="big-icon-play"
         onClick={() => {
-          setUris(objects.object.uri);
+          setUris(object.object.uri);
         }}
         >
           <Icon as={FaPlayCircle} size="50px" color="red"/>
