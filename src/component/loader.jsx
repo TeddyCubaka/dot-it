@@ -6,6 +6,8 @@ export default function Loader(){
             <div className="load1"></div>
             <div className="load2"></div>
             <div className="load3"></div>
+            <div className="load2"></div>
+            <div className="load3"></div>
         </div>
         </>;
 }
