@@ -25,7 +25,7 @@ export default function Playlist() {
       <div className="playlist-info">
         <div>
           <Link
-          to={libraryId.path ? libraryId.path : "/"} 
+          to={libraryId.path ? libraryId.path : "/home"} 
           className="link link-back">
             <Icon as={FaLongArrowAltLeft} size="40px" color="white"
           />

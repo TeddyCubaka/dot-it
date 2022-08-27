@@ -1,15 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 export default function Loader(){
-    const [token , setToken ] = useState("");
-    useEffect(()=>{
-        setToken(localStorage.getItem("token"));
-    }, []);
     return <>
-            {token ? 
-            false
-            : <div className="loader">
-                <div></div>
-            </div>}
+        <div className="loader">
+            <div className="load1"></div>
+            <div className="load2"></div>
+            <div className="load3"></div>
+        </div>
         </>;
 }
