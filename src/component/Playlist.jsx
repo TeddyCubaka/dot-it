@@ -10,7 +10,6 @@ export default function Playlist() {
   const { libraryId } = useContext(urisContext);
   const [array, setArray] = useState([]);
   const [search, setSearch] = useState({});
-  const [searchTrack, setSearchTrack] = useState("");
 
   useEffect(() => {
     const spotifyApi = new SpotifyWebApi();
@@ -18,7 +17,7 @@ export default function Playlist() {
     libraryId.type == "track"
       ? spotifyApi.getTrack(libraryId.id).then((data) => {
           setArray(data.available_markets);
-          setSearchTrack(data);
+          setSearch(data);
         })
       : false;
     libraryId.type == "album"
@@ -30,7 +29,6 @@ export default function Playlist() {
     libraryId.type == "artist"
       ? spotifyApi.getArtistTopTracks(libraryId.id, "CD").then((data) => {
           setArray(data.tracks);
-          // setAlbumImg(data.tracks[0].album.images[0].url);
         })
       : false;
     libraryId.type == "artist"
@@ -40,7 +38,7 @@ export default function Playlist() {
       : false;
   }, []);
 
-  // console.log(libraryId);
+  console.log(search);
 
   return (
     <div className="home">
@@ -101,23 +99,23 @@ export default function Playlist() {
             false
           )}
           <div>
-            {searchTrack.artists ? (
+            {search.type == "track" ? (
               <Track
                 indece={1}
-                trackName={searchTrack.name}
+                trackName={search.name}
                 artists={
-                  searchTrack.artists ? (
-                    searchTrack.artists.map((art) => (
+                  search.artists ? (
+                    search.artists.map((art) => (
                       <span key={art.id}>{art.name}</span>
                     ))
                   ) : (
                     <span>no found</span>
                   )
                 }
-                album={searchTrack.album.name}
+                album={search.album.name}
                 classname={"track"}
-                uri={searchTrack.uri}
-                key={searchTrack.id}
+                uri={search.uri}
+                key={search.id}
               />
             ) : array ? (
               <TrackList array={array} />
