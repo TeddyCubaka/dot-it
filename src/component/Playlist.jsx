@@ -10,7 +10,7 @@ export default function Playlist() {
   const { libraryId } = useContext(urisContext);
   const [searchTrack, setSearchTrack] = useState({});
   const [array, setArray] = useState([]);
-  const [search, setSearch] = useState([]);
+  const [search, setSearch] = useState({});
   // const [albumImg, setAlbumImg] = useState("");
 
   useEffect(() => {
@@ -20,6 +20,7 @@ export default function Playlist() {
       ? spotifyApi.getTrack(libraryId.id).then((data) => {
           setSearchTrack(data);
           setArray(data.available_markets);
+          setSearch(data);
         })
       : false;
     libraryId.type == "album"
@@ -35,14 +36,14 @@ export default function Playlist() {
         })
       : false;
     libraryId.type == "artist"
-    ? spotifyApi.getArtist(libraryId.id).then((data) => {
-        console.log(data);
-        setSearch(data);
-      })
-    : false;
+      ? spotifyApi.getArtist(libraryId.id).then((data) => {
+          // console.log(data);
+          setSearch(data);
+        })
+      : false;
   }, []);
 
-  // console.log(array);
+  console.log(search);
 
   return (
     <div className="home">
@@ -59,6 +60,29 @@ export default function Playlist() {
               description={"Followers"}
               number={search.followers.total}
               path={libraryId.path}
+            />
+          ) : (
+            false
+          )}
+          {search && libraryId.type == "track" ? (
+            <PlaylistMain
+              image={search.album ? search.album.images[0].url : false}
+              name={search.name}
+              type={"Album"}
+              typeName={search.album.name}
+              description={"Durée"}
+              number={
+                Math.floor(search.duration_ms / 60000) +
+                " min " +
+                Math.round(
+                  (search.duration_ms / 60000 -
+                    Math.floor(search.duration_ms / 60000)) *
+                    60,
+                ) +
+                " sec"
+              }
+              path={libraryId.path}
+              uri={search.uri}
             />
           ) : (
             false
