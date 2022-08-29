@@ -140,9 +140,10 @@ export default function Playlist() {
                 key={search.id}
               />
             ) : array ? (
+              <>
+              {/* <div> {array[0].name} </div> */}
               <TrackList array={array} />
-            ) : search.type == "playlist" ? (
-              <span></span>
+              </>
             ) : (
               false
             )}
