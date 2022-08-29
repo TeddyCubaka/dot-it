@@ -28,72 +28,66 @@ export default function Search() {
   }, [value]);
 
   return (
-    <div className="body">
-      <div className="home-body">
-        <div className="search-zone">
-          <form
-            className="div-search"
-            onSubmit={(e) => {
-              e.preventDefault();
-              setValue(Inputvalue);
-            }}>
-            <Icon as={FaSearch} color="black" size="30px" />
-            <input type="search" onChange={searcher} className="search-input" />
-          </form>
-          <button
-            className="button-sec search-btn strong color-white"
-            onClick={() => {
-              setValue(Inputvalue);
-            }}>
-            Rechercher
-          </button>
-        </div>
-        <div>
-          {tracks.tracks ? (
-            <>
-              <h2>Les musique correspondant à votre recherche</h2>
-              <div className="slider">
-                {tracks.tracks.items.map((track) => (
-                  <CollectionCard
-                    object={track}
-                    type={"track"}
-                    key={track.id}
-                  />
-                ))}
-              </div>
-            </>
-          ) : (
-            false
-          )}
-        </div>
-        <div>
-          {genre.artists ? (
-            <>
-              <h2>Les artistes correspondant à votre recherche</h2>
-              <div className="slider">
-                {genre.artists.items.map((art) => (
-                  <CollectionCard object={art} type={"artist"} key={art.id} />
-                ))}
-              </div>
-            </>
-          ) : (
-            <span></span>
-          )}
-        </div>
-        <div>
-          {album.albums ? (
-            <>
-              <h2>Les albums correspondant à votre recherche</h2>
-              <div className="slider">
-                {album.albums.items.map((albi) => (
-                  <CollectionCard object={albi} type={"album"} key={albi.id} />
-                ))}
-              </div>
-            </>
-          ) : (
-            <span></span>
-          )}
-        </div>
+    <div className="home">
+      <div className="search-zone">
+        <form
+          className="div-search"
+          onSubmit={(e) => {
+            e.preventDefault();
+            setValue(Inputvalue);
+          }}>
+          <Icon as={FaSearch} color="black" size="25px" />
+          <input type="search" onChange={searcher} className="search-input" />
+        </form>
+        <button
+          className="button-sec search-btn strong color-white"
+          onClick={() => {
+            setValue(Inputvalue);
+          }}>
+          Rechercher
+        </button>
+      </div>
+      <div>
+        {tracks.tracks ? (
+          <>
+            <h2>Les musique correspondant à votre recherche</h2>
+            <div className="slider">
+              {tracks.tracks.items.map((track) => (
+                <CollectionCard object={track} type={"track"} key={track.id} />
+              ))}
+            </div>
+          </>
+        ) : (
+          false
+        )}
+      </div>
+      <div>
+        {genre.artists ? (
+          <>
+            <h2>Les artistes correspondant à votre recherche</h2>
+            <div className="slider">
+              {genre.artists.items.map((art) => (
+                <CollectionCard object={art} type={"artist"} key={art.id} />
+              ))}
+            </div>
+          </>
+        ) : (
+          <span></span>
+        )}
+      </div>
+      <div>
+        {album.albums ? (
+          <>
+            <h2>Les albums correspondant à votre recherche</h2>
+            <div className="slider">
+              {album.albums.items.map((albi) => (
+                <CollectionCard object={albi} type={"album"} key={albi.id} />
+              ))}
+            </div>
+          </>
+        ) : (
+          <span></span>
+        )}
       </div>
     </div>
   );

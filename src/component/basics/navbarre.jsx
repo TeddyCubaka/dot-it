@@ -1,8 +1,6 @@
 import { Icon } from "@rsuite/icons";
 import { FaHome, FaSearch } from "react-icons/fa";
 import { AiOutlineMenuFold } from "react-icons/ai";
-import { CgProfile } from "react-icons/cg";
-import { BiLibrary } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 
@@ -26,18 +24,6 @@ export default function NavBarre() {
           <Link to="/search" className="link disp-flex-nowrap">
             <Icon as={FaSearch} color="#F5F5F5" size="30px" className="icon-search hide-mobile"/>
             <span className="hide strong">Recherche</span>
-          </Link>
-        </div>
-        <div className="zooming">
-          <Link to="/loader" className="link disp-flex-nowrap">
-            <Icon as={ CgProfile } color="#F5F5F5" size="30px" className="icon-search hide-mobile"/>
-            <span className="hide strong">artistes</span>
-          </Link>
-        </div>
-        <div className="zooming">
-          <Link to="/library" className="link disp-flex-nowrap">
-            <Icon as={ BiLibrary } color="#F5F5F5" size="30px" className="icon-search hide-mobile"/>
-            <span className="hide strong">Bibliothèque</span>
           </Link>
         </div>
       </div>

@@ -30,6 +30,7 @@
         height: 80px;
         width: 100%;
         background-color: #393938;
+        z-index: 2;
         display: flex;
         justify-content: space-between;
     }
@@ -64,6 +65,18 @@
         display: flex;
         align-items: center;
     }
+    .user-info:hover{
+        position: absolute;
+        right: 0px;
+        top: 10px;
+        width: auto;
+        height: 120px;
+        background: #D9D9D9;
+        border-radius: 0px 0px 12px 12px;
+        display: flex;
+        flex-direction: column;
+        transition: border-radius 1s, width 1s, height 1s;
+    }
     .hide-mobile{
         display: none;
     }
@@ -81,6 +94,7 @@
         width: 100%;
         height: auto;
         padding-top: 0px;
+        z-index: 1;
         display: flex;
         flex-direction: row;
     }
@@ -108,7 +122,7 @@
         flex-direction: row;
     }
     .home{
-        margin: 160px 10px;
+        margin: 110px 10px;
         height: auto;
         min-height: 90vh;
         width: 90%;
@@ -143,36 +157,40 @@
     .collection-card {
         width: 200px;
         height: 280px;
-        border-radius: 12px;
-        margin: 0px 20px;
-        background-color: #474746;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        color: white;
-      }
-      .collection-card > .big-icon-play {
+    }
+    .collection-card > .big-icon-play {
         position: relative;
         display: inline;
-        top: -178px;
-        left: 85px;
-        height: 0px;
-      }
-      .collection-card:hover > .big-icon-play {
+        top: -138px;
+        left: 60px;
         opacity: 1;
-        transition: opacity 1s;
-      }
-      .collection-card > .link > div {
+    }
+    .collection-card > .link > div {
         margin: 0px 15px;
-      }
-      .collection-card-img > img {
+    }
+    .collection-card-img > img {
         margin-top: 15px;
         width: 180px;
         height: 180px;
-      }
-
-
+    }
+    .home-body{
+        width: 100%;
+        margin-left: 10px;
+        min-height: 95vh;
+    }
+    .search-input {
+        width: 230px;
+        height: 25px;
+    }
+    .div-search {
+        margin: 30px 0px;
+        width: 280px;
+        height: 30px;
+    }
+    .search-btn{
+        width: auto;
+        height: 30px;
+    }
 
 
 }
