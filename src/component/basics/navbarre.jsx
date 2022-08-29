@@ -15,28 +15,28 @@ export default function NavBarre() {
       }}>
         <Icon as={AiOutlineMenuFold} size="25px" color="white" className="icon-legend"/>
       </legend>
-      <div className="nav-list disp-flex-col">
+      <div className="nav-list disp-flex-col disp-flex-col-mobile ">
         <div className="zooming">
           <Link to="/home" className="link disp-flex-nowrap">
-            <Icon as={FaHome} size="30px" color="white" className="icon-search" />
+            <Icon as={FaHome} size="30px" color="white" className="icon-search hide-mobile" />
             <span className="hide strong">Accueil</span>
           </Link>
         </div>
         <div className="zooming">
           <Link to="/search" className="link disp-flex-nowrap">
-            <Icon as={FaSearch} color="#F5F5F5" size="30px" className="icon-search"/>
+            <Icon as={FaSearch} color="#F5F5F5" size="30px" className="icon-search hide-mobile"/>
             <span className="hide strong">Recherche</span>
           </Link>
         </div>
         <div className="zooming">
           <Link to="/loader" className="link disp-flex-nowrap">
-            <Icon as={ CgProfile } color="#F5F5F5" size="30px" className="icon-search"/>
+            <Icon as={ CgProfile } color="#F5F5F5" size="30px" className="icon-search hide-mobile"/>
             <span className="hide strong">artistes</span>
           </Link>
         </div>
         <div className="zooming">
           <Link to="/library" className="link disp-flex-nowrap">
-            <Icon as={ BiLibrary } color="#F5F5F5" size="30px" className="icon-search"/>
+            <Icon as={ BiLibrary } color="#F5F5F5" size="30px" className="icon-search hide-mobile"/>
             <span className="hide strong">Bibliothèque</span>
           </Link>
         </div>

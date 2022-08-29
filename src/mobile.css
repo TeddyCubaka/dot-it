@@ -1,6 +1,34 @@
 @media only screen and (max-width : 600px) {
+
+    .big-title{
+        font-size: 25px;
+        font-weight: 600;
+      }
+      .title{
+        font-size: 22px;
+        font-weight: 600;
+      }
+      .small-title{
+        font-size: 20px;
+        font-weight: 500;
+      }
+      .text{
+        font-size: 16px;
+        font-weight: 400;
+      }
+      .small{
+        font-size: 11px;
+        font-weight: 300;
+      }
+      .strong{
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+
     .header{
         height: 80px;
+        width: 98%;
         background-color: #393938;
         display: flex;
         justify-content: space-between;
@@ -30,9 +58,11 @@
         width: auto;
         height: 50px;
         margin: auto 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 15px;
         display: flex;
         align-items: center;
-        border-radius: 10px;
     }
     .hide-mobile{
         display: none;
@@ -45,6 +75,43 @@
     .user-info-icons{
         display: flex;
         justify-content: space-between;
+    }
+    .nav-barre{
+        top: 82px;
+        width: 100%;
+        height: auto;
+        padding-top: 0px;
+        display: flex;
+        flex-direction: row;
+    }
+    .nav-list{
+        margin: 0px;
+        overflow: scroll;
+    }
+    .nav-list > div{
+        margin: 0px 10px;
+    }
+    .nav-barre > legend{
+        display: none;
+    }
+    .nav-list > div > .link > .hide{
+        display: inline;
+        color: white;
+        margin: 10px;
+    }
+    .nav-barre-clique > .nav-list > div > .link{
+        text-decoration: none;
+        margin-left: 15px;
+    }
+    .disp-flex-col-mobile{
+        display: flex;
+        flex-direction: row;
+    }
+    .home{
+        margin: 160px 10px;
+        height: auto;
+        min-height: 90vh;
+        width: 90%;
     }
 
 
