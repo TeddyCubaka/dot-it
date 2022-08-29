@@ -37,14 +37,13 @@ export default function Playlist() {
         })
       : false;
     libraryId.type == "playlist"
-    ? spotifyApi.getPlaylist(libraryId.id).then((data) => {
-        console.log(data);
-        setSearch(data);
-        setArray(data.tracks.items);
-      })
-    : false;
+      ? spotifyApi.getPlaylist(libraryId.id, { limit: "20" }).then((data) => {
+          console.log(data);
+          setSearch(data);
+          setArray(data.tracks.items);
+        })
+      : false;
   }, []);
-
 
   return (
     <div className="home">
@@ -98,7 +97,7 @@ export default function Playlist() {
               number={search.release_date}
               path={libraryId.path}
               uri={search.uri}
-              tracks = {"Nombre des tracks"}
+              tracks={"Nombre des tracks"}
               numberTracks={search.total_tracks}
             />
           ) : (
@@ -114,7 +113,7 @@ export default function Playlist() {
               number={search.description}
               path={libraryId.path}
               uri={search.uri}
-              tracks = {"Nombre des tracks"}
+              tracks={"Nombre des tracks"}
               numberTracks={search.tracks.items.length}
             />
           ) : (
@@ -141,8 +140,8 @@ export default function Playlist() {
               />
             ) : array ? (
               <>
-              {/* <div> {array[0].name} </div> */}
-              <TrackList array={array} />
+                {/* <div> {array[0].name} </div> */}
+                <TrackList array={array} />
               </>
             ) : (
               false

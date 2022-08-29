@@ -26,7 +26,7 @@ export default function UserInfo() {
         </div>
         <Icon as={FaChevronDown} size="15px" className="user-icon color-black"/>
       </div>
-      <div className="user-details color-black">
+      <div className="user-details color-black hide-mobile">
         <div>
           <span className="hide">Nom : </span>
           <strong>{spotify.display_name}</strong>{" "}

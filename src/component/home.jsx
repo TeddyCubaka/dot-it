@@ -25,6 +25,7 @@ export default function Home() {
   });
   const [playlists, setPlaylists] = useState({});
   const [albums, setAlbums] = useState({});
+  const [gospel, setGospel] = useState({});
 
   useEffect(() => {
     const spotifyApi = new SpotifyWebApi();
@@ -41,6 +42,10 @@ export default function Home() {
 
     spotifyApi.searchAlbums("daily mix afro").then((data) => {
       setAlbums(data);
+    });
+
+    spotifyApi.searchPlaylists("gospel").then((data) => {
+      setGospel(data);
     });
 
   }, []);
@@ -76,7 +81,7 @@ export default function Home() {
             <div></div>
           )}
         </div>
-        <h2>Vos playlist les plus écoutés</h2>
+        <h2>Les playlist daily mix afro pourrez vous interressez</h2>
         <div className="slider">
           {playlists.playlists ? (
             playlists.playlists.items.map((playlist) => <CollectionCard object={playlist} key={playlist.id} />)
@@ -88,6 +93,14 @@ export default function Home() {
         <div className="slider">
           {albums.albums ? (
             albums.albums.items.map((playlist) => <CollectionCard object={playlist} key={playlist.id} />)
+          ) : (
+            <div></div>
+          )}
+        </div>
+        <h2>Un peu de Gospel</h2>
+        <div className="slider">
+          {gospel.playlists ? (
+            gospel.playlists.items.map((playlist) => <CollectionCard object={playlist} key={playlist.id} />)
           ) : (
             <div></div>
           )}
