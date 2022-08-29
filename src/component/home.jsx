@@ -24,6 +24,7 @@ export default function Home() {
     ]
   });
   const [playlists, setPlaylists] = useState({});
+  const [albums, setAlbums] = useState({});
 
   useEffect(() => {
     const spotifyApi = new SpotifyWebApi();
@@ -36,6 +37,10 @@ export default function Home() {
 
     spotifyApi.searchPlaylists("daily mix afro").then((data) => {
       setPlaylists(data);
+    });
+
+    spotifyApi.searchAlbums("daily mix afro").then((data) => {
+      setAlbums(data);
     });
 
   }, []);
@@ -75,6 +80,14 @@ export default function Home() {
         <div className="slider">
           {playlists.playlists ? (
             playlists.playlists.items.map((playlist) => <CollectionCard object={playlist} key={playlist.id} />)
+          ) : (
+            <div></div>
+          )}
+        </div>
+        <h2>Des albums</h2>
+        <div className="slider">
+          {albums.albums ? (
+            albums.albums.items.map((playlist) => <CollectionCard object={playlist} key={playlist.id} />)
           ) : (
             <div></div>
           )}

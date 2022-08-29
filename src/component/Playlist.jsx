@@ -8,25 +8,23 @@ import Loader from "./loader";
 
 export default function Playlist() {
   const { libraryId } = useContext(urisContext);
-  const [searchTrack, setSearchTrack] = useState({});
   const [array, setArray] = useState([]);
   const [search, setSearch] = useState({});
-  // const [albumImg, setAlbumImg] = useState("");
+  const [searchTrack, setSearchTrack] = useState("");
 
   useEffect(() => {
     const spotifyApi = new SpotifyWebApi();
     spotifyApi.setAccessToken(localStorage.getItem("token"));
     libraryId.type == "track"
       ? spotifyApi.getTrack(libraryId.id).then((data) => {
-          setSearchTrack(data);
           setArray(data.available_markets);
-          setSearch(data);
+          setSearchTrack(data);
         })
       : false;
     libraryId.type == "album"
       ? spotifyApi.getAlbum(libraryId.id).then((data) => {
           setArray(data.tracks.items);
-          // setAlbumImg(data.images[0].url);
+          setSearch(data);
         })
       : false;
     libraryId.type == "artist"
@@ -37,13 +35,12 @@ export default function Playlist() {
       : false;
     libraryId.type == "artist"
       ? spotifyApi.getArtist(libraryId.id).then((data) => {
-          // console.log(data);
           setSearch(data);
         })
       : false;
   }, []);
 
-  console.log(search);
+  // console.log(libraryId);
 
   return (
     <div className="home">
@@ -83,6 +80,22 @@ export default function Playlist() {
               }
               path={libraryId.path}
               uri={search.uri}
+            />
+          ) : (
+            false
+          )}
+          {search && libraryId.type == "album" ? (
+            <PlaylistMain
+              image={search.images ? search.images[0].url : false}
+              name={search.name}
+              type={"Artiste"}
+              typeName={search.artists[0].name}
+              description={"Date de sortie"}
+              number={search.release_date}
+              path={libraryId.path}
+              uri={search.uri}
+              tracks = {"Nombre des tracks"}
+              numberTracks={search.total_tracks}
             />
           ) : (
             false

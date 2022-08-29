@@ -4,7 +4,7 @@ import { FaLongArrowAltLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
-export default function PlaylistMain({name, image, type, typeName, description, number, path}) {
+export default function PlaylistMain({name, image, type, typeName, description, number, path, tracks, numberTracks}) {
   return (
       <div className="playlist-main">
         <div>
@@ -24,6 +24,9 @@ export default function PlaylistMain({name, image, type, typeName, description, 
           <div>
             {description} : <span className="strong"> {number} </span>
           </div>
+          {tracks ? <div>
+            {tracks} : <span className="strong"> {numberTracks} </span>
+          </div> : false}
         </div>
       </div>
   );
