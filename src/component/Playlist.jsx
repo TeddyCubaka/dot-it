@@ -53,11 +53,12 @@ export default function Playlist() {
           {search.type && libraryId.type == "artist" ? (
             <PlaylistMain
               image={search.images ? search.images[0].url : false}
-              name={libraryId.name}
+              name={search.name}
               type={"Genre"}
               typeName={search.genres}
               description={"Followers"}
               number={search.followers.total}
+              path={libraryId.path}
             />
           ) : (
             false

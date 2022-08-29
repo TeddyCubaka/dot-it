@@ -4,13 +4,11 @@ import { FaLongArrowAltLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
-export default function PlaylistMain({name, image, type, typeName, description, number}) {
-    // const description = "date de sortie";
-    // const number = "20/06/2003";
+export default function PlaylistMain({name, image, type, typeName, description, number, path}) {
   return (
       <div className="playlist-main">
         <div>
-          <Link to="/home">
+          <Link to={path ? path : "/home"}  >
             <Icon as={FaLongArrowAltLeft} size="40px" color="white"/>
           </Link>
         </div>
