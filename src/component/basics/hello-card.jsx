@@ -18,7 +18,7 @@ export default function HelloCard(elem) {
           <Link to="/library" className="link">
             <div>
                 <img src={elem.elem.images[0].url} alt="" />
-                <h4>{elem.elem.name}</h4>
+                <div className="small-title">{elem.elem.name}</div>
             </div>
           </Link>
           <div 
