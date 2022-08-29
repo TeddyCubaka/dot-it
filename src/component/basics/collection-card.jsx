@@ -9,6 +9,7 @@ export default function CollectionCard(object) {
   return (
     <div
       className="collection-card"
+      key={object.id}
       >
       <Link 
       to="/library" 
@@ -19,19 +20,18 @@ export default function CollectionCard(object) {
                       album : object.object.album ? object.object.album.name : false,
                       parentUri : object.object.uri,
                       path : window.location.pathname});
-                      console.log(object.object);
       }}
       className="link">
         <div className="collection-card-img">
           {object.object.album ? (
             <img src={object.object.album.images[0].url} alt="" />
           ) : (
-            <span></span>
+            false
           )}
           {object.object.images && object.object.images[0] ? (
             <img src={object.object.images[0].url} />
           ) : (
-            <span></span>
+            false
           )}
         </div>
         <div className="width-max disp-flex-col height-max">
@@ -43,7 +43,7 @@ export default function CollectionCard(object) {
           {object.object.artists ? (
             <div className="small"> {object.object.artists[0].name} </div>
           ) : (
-            <h5></h5>
+            false
           )}
         </div>
       </Link>

@@ -23,6 +23,7 @@ export default function Home() {
       { name: "", images: [{ url: "" }] },
     ]
   });
+  const [playlists, setPlaylists] = useState({});
 
   useEffect(() => {
     const spotifyApi = new SpotifyWebApi();
@@ -32,6 +33,11 @@ export default function Home() {
     
     const toTrack = spotifyApi.getMyTopTracks();
     toTrack.then((data) => setGenre(data));
+
+    spotifyApi.searchPlaylists("daily mix afro").then((data) => {
+      setPlaylists(data);
+    });
+
   }, []);
 
   return (
@@ -61,6 +67,14 @@ export default function Home() {
         <div className="slider">
           {topArtiste.items ? (
             topArtiste.items.map((art) => <CollectionCard object={art} key={art.id} />)
+          ) : (
+            <div></div>
+          )}
+        </div>
+        <h2>Vos playlist les plus écoutés</h2>
+        <div className="slider">
+          {playlists.playlists ? (
+            playlists.playlists.items.map((playlist) => <CollectionCard object={playlist} key={playlist.id} />)
           ) : (
             <div></div>
           )}

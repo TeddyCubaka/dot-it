@@ -1,10 +1,8 @@
-import { Icon } from "@rsuite/icons";
 import React, { useContext, useEffect, useState } from "react";
-import { FaLongArrowAltLeft, FaPlayCircle } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import SpotifyWebApi from "spotify-web-api-js";
 import { urisContext } from "../userContext/urisContext";
 import Track from "./basics/musique";
+import PlaylistMain from "./basics/playlistMain";
 import TrackList from "./basics/trackList";
 import Loader from "./loader";
 
@@ -12,7 +10,7 @@ export default function Playlist() {
   const { libraryId } = useContext(urisContext);
   const [searchTrack, setSearchTrack] = useState({});
   const [array, setArray] = useState([]);
-  const [albumImg, setAlbumImg] = useState("");
+  // const [albumImg, setAlbumImg] = useState("");
 
   useEffect(() => {
     const spotifyApi = new SpotifyWebApi();
@@ -26,16 +24,14 @@ export default function Playlist() {
     libraryId.type == "album"
       ? spotifyApi.getAlbum(libraryId.id).then((data) => {
           setArray(data.tracks.items);
-          setAlbumImg(data.images[0].url);
+          // setAlbumImg(data.images[0].url);
         })
       : false;
     libraryId.type == "artist"
-      ? spotifyApi
-          .getArtistTopTracks(libraryId.id, "CD")
-          .then((data) => {
-            setArray(data.tracks);
-            setAlbumImg(data.tracks[0].album.images[0].url);
-          })
+      ? spotifyApi.getArtistTopTracks(libraryId.id, "CD").then((data) => {
+          setArray(data.tracks);
+          // setAlbumImg(data.tracks[0].album.images[0].url);
+        })
       : false;
   }, []);
 
@@ -45,41 +41,7 @@ export default function Playlist() {
         <Loader />
       ) : (
         <>
-          <div className="playlist-info">
-            <div>
-              <Link
-                to={libraryId.path ? libraryId.path : "/home"}
-                className="link link-back">
-                <Icon as={FaLongArrowAltLeft} size="40px" color="white" />
-              </Link>
-              <div className="playlist-names">
-                {libraryId.name ? (
-                  <div className="title">{libraryId.name}</div>
-                ) : (
-                  false
-                )}
-                {libraryId.album ? (
-                  <div className="strong">{libraryId.album.name}</div>
-                ) : (
-                  false
-                )}
-              </div>
-            </div>
-            <div className="playlist-img">
-              {albumImg ? <img src={albumImg} alt=" " /> : false}
-              {searchTrack.album ? (
-                <img src={searchTrack.album.images[0].url} alt=" " />
-              ) : (
-                false
-              )}
-              <Icon
-                as={FaPlayCircle}
-                size="80px"
-                className="relative-icon"
-                onClick={() => console.log(libraryId.parentUri)}
-              />
-            </div>
-          </div>
+          <PlaylistMain />
           <div>
             {searchTrack.artists ? (
               <Track

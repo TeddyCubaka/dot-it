@@ -27,32 +27,37 @@ function App() {
   const [libraryId, setLibraryId] = useState(useContext(urisContext));
 
   return (
-    <urisContext.Provider value={{ uris, setUris, library, setLibrary, libraryId, setLibraryId }}>
+    <urisContext.Provider
+      value={{ uris, setUris, library, setLibrary, libraryId, setLibraryId }}>
       <Router>
         <div className="App"></div>
         <Header />
         {window.location.pathname !== "/" ? <NavBarre /> : <span></span>}
         <Routes>
           <Route path="/:j" element={<Header />} />
-          <Route exact path="/" element={ <Login /> } />
-          <Route exact path="/home" element={ <Home /> } />
+          <Route exact path="/" element={<Login />} />
+          <Route exact path="/home" element={<Home />} />
           <Route path="/search" element={<Search />} />
           <Route path="/library" element={<Playlist />} />
           <Route path="/loader" element={<Loader />} />
         </Routes>
       </Router>
-      {window.location.pathname == "/" ? 
+      {window.location.pathname == "/" ? (
         false
-      : <div className="bottom all-width">
+      ) : (
+        <div className="bottom all-width">
+          {uris ? (
             <SpotifyWebPlayer
               showSaveIcon={true}
               token={localStorage.getItem("token")}
               uris={[uris]}
               play={true}
             />
-        </div>}
-
-      
+          ) : (
+            false
+          )}
+        </div>
+      )}
     </urisContext.Provider>
   );
 }
