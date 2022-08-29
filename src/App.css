@@ -431,7 +431,6 @@
   grid-template-columns: 1fr 4fr 5fr;
 }
 .playlist-img{
-  border: 2px solid white;
   height: 200px;
   width: 200px;
   overflow: hidden;

@@ -4,7 +4,9 @@ import { FaLongArrowAltLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
-export default function PlaylistMain() {
+export default function PlaylistMain({name, image, type, typeName, description, number}) {
+    // const description = "date de sortie";
+    // const number = "20/06/2003";
   return (
       <div className="playlist-main">
         <div>
@@ -14,15 +16,15 @@ export default function PlaylistMain() {
         </div>
         <div className="playlist-img">
           <img
-            src="https://i1.sndcdn.com/artworks-000231891000-378ga8-t500x500.jpg"
+            src={image}
             alt=""
           />
         </div>
         <div className="main-description">
-          <h1>Object name</h1>
-          <div>Type : album</div>
+          <h1> {name} </h1>
+          <div>{type} : {typeName}</div>
           <div>
-            Date de sortie : <span className="strong">20/12/2002</span>
+            {description} : <span className="strong"> {number} </span>
           </div>
         </div>
       </div>

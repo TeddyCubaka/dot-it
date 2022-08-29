@@ -10,6 +10,7 @@ export default function Playlist() {
   const { libraryId } = useContext(urisContext);
   const [searchTrack, setSearchTrack] = useState({});
   const [array, setArray] = useState([]);
+  const [search, setSearch] = useState([]);
   // const [albumImg, setAlbumImg] = useState("");
 
   useEffect(() => {
@@ -33,7 +34,15 @@ export default function Playlist() {
           // setAlbumImg(data.tracks[0].album.images[0].url);
         })
       : false;
+    libraryId.type == "artist"
+    ? spotifyApi.getArtist(libraryId.id).then((data) => {
+        console.log(data);
+        setSearch(data);
+      })
+    : false;
   }, []);
+
+  // console.log(array);
 
   return (
     <div className="home">
@@ -41,7 +50,18 @@ export default function Playlist() {
         <Loader />
       ) : (
         <>
-          <PlaylistMain />
+          {search.type && libraryId.type == "artist" ? (
+            <PlaylistMain
+              image={search.images ? search.images[0].url : false}
+              name={libraryId.name}
+              type={"Genre"}
+              typeName={search.genres}
+              description={"Followers"}
+              number={search.followers.total}
+            />
+          ) : (
+            false
+          )}
           <div>
             {searchTrack.artists ? (
               <Track
