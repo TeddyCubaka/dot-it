@@ -36,9 +36,15 @@ export default function Playlist() {
           setSearch(data);
         })
       : false;
+    libraryId.type == "playlist"
+    ? spotifyApi.getPlaylist(libraryId.id).then((data) => {
+        console.log(data);
+        setSearch(data);
+        setArray(data.tracks.items);
+      })
+    : false;
   }, []);
 
-  console.log(search);
 
   return (
     <div className="home">
@@ -98,6 +104,22 @@ export default function Playlist() {
           ) : (
             false
           )}
+          {search && libraryId.type == "playlist" ? (
+            <PlaylistMain
+              image={search.images ? search.images[0].url : false}
+              name={search.name}
+              type={"Propriètaire"}
+              typeName={search.owner.display_name}
+              description={"Description de la playlist"}
+              number={search.description}
+              path={libraryId.path}
+              uri={search.uri}
+              tracks = {"Nombre des tracks"}
+              numberTracks={search.tracks.items.length}
+            />
+          ) : (
+            false
+          )}
           <div>
             {search.type == "track" ? (
               <Track
@@ -119,6 +141,8 @@ export default function Playlist() {
               />
             ) : array ? (
               <TrackList array={array} />
+            ) : search.type == "playlist" ? (
+              <span></span>
             ) : (
               false
             )}
