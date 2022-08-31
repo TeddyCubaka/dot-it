@@ -34,7 +34,7 @@ export default function CollectionCard(object) {
             false
           )}
         </div>
-        <div className="width-max disp-flex-col height-max">
+        <div className="width-max disp-flex-col height-max title">
           {object.object.name ? (
             <div className="strong">{object.object.name} </div>
           ) : (
@@ -47,14 +47,14 @@ export default function CollectionCard(object) {
           )}
         </div>
       </Link>
-        <div 
-        className="big-icon-play"
-        onClick={() => {
-          setUris(object.object.uri);
-        }}
-        >
-          <Icon as={FaPlayCircle} size="50px" color="red"/>
-        </div>
+      <div 
+      className="big-icon-play"
+      onClick={() => {
+        setUris(object.object.uri);
+      }}
+      >
+        <Icon as={FaPlayCircle} size="50px" color="red"/>
+      </div>
     </div>
   );
 }

@@ -165,22 +165,35 @@
     }
     .collection-card {
         width: 200px;
-        height: 280px;
+        height: 200px;
     }
     .collection-card > .big-icon-play {
         position: relative;
-        display: inline;
-        top: -138px;
-        left: 60px;
+        display: inline-block;
+        top: -400px;
+        left: 70px;
         opacity: 1;
     }
     .collection-card > .link > div {
         margin: 0px 15px;
     }
+    .title{
+        height: 200px;
+        width: 200px;
+        position: relative;
+        bottom: 204px;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    .title > div{
+        margin: 1px 5px;
+    }
     .collection-card-img > img {
-        margin-top: 15px;
-        width: 180px;
-        height: 180px;
+        margin-top: 0px;
+        width: 200px;
+        height: 200px;
     }
     .home-body{
         width: 100%;
