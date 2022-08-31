@@ -320,9 +320,12 @@
   align-items: center;
   justify-content: space-between;
 }
+.hello-card > .link{
+  display: flex;
+}
 .hello-card> .link > div > img {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
 }
 .hello-card> .link  > div {
   text-decoration: none;
