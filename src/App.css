@@ -261,6 +261,7 @@
 }
 .icon-legend:hover{
   transform: scale(1.2);
+  transform: rotate(180deg);
 }
 .nav-barre-clique {
   width: 180px;
