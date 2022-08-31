@@ -16,10 +16,10 @@ export default function HelloCard(elem) {
         }}
         >
           <Link to="/library" className="link">
-            <div>
+            <div className="hello-card-div-img">
                 <img src={elem.elem.images[0].url} alt="" />
-                <div className="small-title">{elem.elem.name}</div>
             </div>
+            <div className="small-title">{elem.elem.name}</div>
           </Link>
           <div 
           className="big-icon-play"

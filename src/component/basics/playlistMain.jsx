@@ -6,17 +6,20 @@ import { Link } from "react-router-dom";
 
 export default function PlaylistMain({name, image, type, typeName, description, number, path, tracks, numberTracks}) {
   return (
+    <>
       <div className="playlist-main">
-        <div>
+        <div className="">
           <Link to={path ? path : "/home"}  >
             <Icon as={FaLongArrowAltLeft} size="40px" color="white"/>
           </Link>
         </div>
-        <div className="playlist-img">
-          <img
-            src={image}
-            alt=""
-          />
+        <div className="bloc-de-l-image">
+          <div className="playlist-img">
+            <img
+              src={image}
+              alt=""
+            />
+          </div>
         </div>
         <div className="main-description">
           <h1> {name} </h1>
@@ -29,6 +32,7 @@ export default function PlaylistMain({name, image, type, typeName, description, 
           </div> : false}
         </div>
       </div>
+    </>
   );
 }
 

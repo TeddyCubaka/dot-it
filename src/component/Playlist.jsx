@@ -120,6 +120,8 @@ export default function Playlist() {
             false
           )}
           <div>
+            <div className="main-seprator"></div>
+            
             {search.type == "track" ? (
               <Track
                 indece={1}
