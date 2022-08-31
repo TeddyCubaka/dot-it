@@ -38,7 +38,6 @@ export default function Playlist() {
       : false;
     libraryId.type == "playlist"
       ? spotifyApi.getPlaylist(libraryId.id, { limit: "20" }).then((data) => {
-          console.log(data);
           setSearch(data);
           setArray(data.tracks.items);
         })
@@ -109,8 +108,8 @@ export default function Playlist() {
               name={search.name}
               type={"Propriètaire"}
               typeName={search.owner.display_name}
-              description={"Description de la playlist"}
-              number={search.description}
+              description={"Nombre de followers"}
+              number={search.followers.total}
               path={libraryId.path}
               uri={search.uri}
               tracks={"Nombre des tracks"}
