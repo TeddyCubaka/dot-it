@@ -17,7 +17,7 @@
         font-weight: 400;
       }
       .small{
-        font-size: 11px;
+        font-size: 14px;
         font-weight: 300;
       }
       .strong{
@@ -112,7 +112,7 @@
         margin: 0px 10px;
     }
     .nav-barre > legend{
-        display: none;
+        display: flex;
     }
     .nav-list > div > .link > .hide{
         display: inline;
@@ -191,7 +191,7 @@
         justify-content: flex-end;
     }
     .title > div{
-        margin: 1px 5px;
+        padding-left: 5px;
     }
     .collection-card-img > img {
         margin-top: 0px;
