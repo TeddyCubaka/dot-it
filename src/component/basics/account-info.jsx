@@ -23,7 +23,7 @@ export default function UserInfo() {
     <div className="user-info">
       <div className="user-info-icons">
         <div className="user-image">
-          {spotify.images ? (
+          {spotify.images.length ? (
             <img
               className="user-img"
               src={spotify.images ? spotify.images[0].url : false}
