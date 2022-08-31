@@ -1,7 +1,8 @@
 import { FaChevronDown } from "react-icons/fa";
+import { CgProfile } from "react-icons/cg";
 import { Icon } from "@rsuite/icons";
 import SpotifyWebApi from "spotify-web-api-js";
-import React , { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function UserInfo() {
@@ -22,9 +23,21 @@ export default function UserInfo() {
     <div className="user-info">
       <div className="user-info-icons">
         <div className="user-image">
-          <img className="user-img" src={spotify.images[0].url} alt="" />
+          {spotify.images ? (
+            <img
+              className="user-img"
+              src={spotify.images ? spotify.images[0].url : false}
+              alt=""
+            />
+          ) : (
+            <Icon as={CgProfile} size="40px" color="#393938" />
+          )}
         </div>
-        <Icon as={FaChevronDown} size="15px" className="user-icon color-black"/>
+        <Icon
+          as={FaChevronDown}
+          size="15px"
+          className="user-icon color-black"
+        />
       </div>
       <div className="user-details color-black hide-mobile">
         <div>
@@ -36,8 +49,12 @@ export default function UserInfo() {
           {spotify.email}
         </div>
       </div>
-      <button className="login-button button strong color-white hide" onClick={()=>{localStorage.removeItem("token");}}>
-        <Link  to="/" className="link">
+      <button
+        className="login-button button strong color-white hide"
+        onClick={() => {
+          localStorage.removeItem("token");
+        }}>
+        <Link to="/" className="link">
           Changer de compter
         </Link>
       </button>
