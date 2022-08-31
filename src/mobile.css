@@ -17,7 +17,7 @@
         font-weight: 400;
       }
       .small{
-        font-size: 11px;
+        font-size: 14px;
         font-weight: 300;
       }
       .strong{
@@ -96,13 +96,14 @@
         justify-content: space-between;
     }
     .nav-barre{
-        top: 82px;
+        top: 80px;
         width: 100%;
-        height: auto;
+        height: 50px;
         padding-top: 0px;
         z-index: 1;
         display: flex;
         flex-direction: row;
+        align-items: center;
     }
     .nav-list{
         margin: 0px;
@@ -112,10 +113,21 @@
         margin: 0px 10px;
     }
     .nav-barre > legend{
-        display: none;
+        display: flex;
+        width: auto;
+    }
+    .icon-legend{
+        transform: rotate(180deg);
+        transition: transform 1s;
+    }
+    .icon-legend:hover{
+        transform: scale(1.2);
+        transform: rotate(180deg);
+    }
+    .nav-barre-clique > legend > .icon-legend{
+        transform: rotate(0deg);
     }
     .nav-list > div > .link > .hide{
-        display: inline;
         color: white;
         margin: 10px;
     }
@@ -191,7 +203,7 @@
         justify-content: flex-end;
     }
     .title > div{
-        margin: 1px 5px;
+        padding-left: 5px;
     }
     .collection-card-img > img {
         margin-top: 0px;
@@ -215,6 +227,52 @@
     .search-btn{
         width: auto;
         height: 30px;
+    }
+    .playlist-main{
+        width: 90%;
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+    }
+    .bloc-de-l-image{
+        height: 250px;
+    }
+    .playlist-img{
+        height: 250px;
+        width: 100%;
+        position: absolute;
+        top: 130px;
+        left: 0px;
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.75);
+        z-index: -5;
+    }
+    .playlist-img > img{
+        width: 100%;
+        height: max-content;
+    }
+    .main-description{
+        height: 100%;
+        width: 100vw;
+        position: relative;
+        left: -10px;
+        box-shadow: 100px 200px 10px rgba(0, 0, 0, 0.75) inset;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    .main-description > div{
+        margin: 7px 10px;
+    }
+    .main-seprator{
+        width: 100%;
+        height: 46px;
+        margin-right: 25px;
+        background-color: #393938;
+        box-shadow: 0px 2px 4px black;
+        border-radius: 15px 15px 0px 0px;
+        position: sticky;
+        top: 110px;
+        z-index: 1;
     }
 
 
