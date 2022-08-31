@@ -53,7 +53,7 @@ export default function CollectionCard(object) {
         setUris(object.object.uri);
       }}
       >
-        <Icon as={FaPlayCircle} size="50px" color="red"/>
+        <Icon as={FaPlayCircle} size="50px" color="red" className="collection-card-icon"/>
       </div>
     </div>
   );

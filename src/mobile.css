@@ -26,6 +26,12 @@
       }
 
 
+    .home{
+        margin: 130px 10px;
+        height: auto;
+        min-height: 90vh;
+        width: 90%;
+    }
     .header{
         height: 80px;
         width: 100%;
@@ -121,12 +127,6 @@
         display: flex;
         flex-direction: row;
     }
-    .home{
-        margin: 110px 10px;
-        height: auto;
-        min-height: 90vh;
-        width: 90%;
-    }
     .hello-collection{
         width: 100%;
         display: grid;
@@ -170,12 +170,15 @@
     .collection-card > .big-icon-play {
         position: relative;
         display: inline-block;
-        top: -400px;
-        left: 70px;
+        top: -410px;
+        left: 80px;
         opacity: 1;
     }
     .collection-card > .link > div {
         margin: 0px 15px;
+    }
+    .collection-card-icon{
+        width: 20px !important;
     }
     .title{
         height: 200px;
