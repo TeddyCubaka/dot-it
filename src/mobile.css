@@ -249,7 +249,6 @@
     .playlist-img > img{
         width: 100%;
         height: max-content;
-        opacity: 0.5;
     }
     .main-description{
         height: 100%;
@@ -260,6 +259,9 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
+    }
+    .main-description > div{
+        margin: 7px 10px;
     }
     .main-seprator{
         width: 100%;
