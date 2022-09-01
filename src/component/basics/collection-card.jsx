@@ -12,7 +12,7 @@ export default function CollectionCard(object) {
       key={object.id}
       >
       <Link 
-      to="/library" 
+      to="/playlist" 
       onClick={()=>{
         setLibraryId({id : object.object.id , 
                       type : object.object.type, 
@@ -20,7 +20,6 @@ export default function CollectionCard(object) {
                       album : object.object.album ? object.object.album.name : false,
                       parentUri : object.object.uri,
                       path : window.location.pathname});
-        console.log(object);
       }}
       className="link">
         <div className="collection-card-img">

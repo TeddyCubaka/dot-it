@@ -15,7 +15,7 @@ export default function HelloCard(elem) {
           setLibraryId({id : elem.elem.id , type : elem.elem.type, name : elem.elem.name});
         }}
         >
-          <Link to="/library" className="link">
+          <Link to="/playlist" className="link">
             <div className="hello-card-div-img">
                 <img src={elem.elem.images[0].url} alt="" />
             </div>

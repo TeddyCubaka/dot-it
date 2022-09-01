@@ -145,7 +145,6 @@ export default function Playlist() {
               />
             ) : array ? (
               <>
-                {/* <div> {array[0].name} </div> */}
                 <TrackList array={array} />
               </>
             ) : (

@@ -39,6 +39,7 @@ export default function UserInfo() {
           className="login-button button strong color-white hide"
           onClick={() => {
             localStorage.removeItem("token");
+            window.location.reload();
           }}>
           <Link to="/" className="link">
             Changer de compter

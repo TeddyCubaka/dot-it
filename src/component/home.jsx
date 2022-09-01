@@ -47,9 +47,9 @@ export default function Home() {
       setGospel(data);
     });
 
-    spotifyApi.getMe().then((data) => {
-      console.log(data);
-    });
+    // spotifyApi.getMe().then((data) => {
+    //   console.log(data);
+    // });
   }, []);
 
   return (
@@ -92,7 +92,7 @@ export default function Home() {
               <CollectionCard object={playlist} key={playlist.id} />
             ))
           ) : (
-            <div></div>
+            <div></div> 
           )}
         </div>
         <h2>Des albums</h2>
