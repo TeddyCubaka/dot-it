@@ -30,7 +30,7 @@ function App() {
       value={{ uris, setUris, library, setLibrary, libraryId, setLibraryId }}>
       <Router>
         <Header />
-        {window.location.pathname !== "/" ? <NavBarre /> : <span></span>}
+        {localStorage.getItem("token")? <NavBarre /> : <span></span>}
         <Routes>
           <Route exact path="/" element={<Login />} />
           <Route exact path="/home" element={<Home />} />
@@ -38,9 +38,7 @@ function App() {
           <Route path="/playlist" element={<Playlist />} />
         </Routes>
       </Router>
-      {window.location.pathname == "/" ? (
-        false
-      ) : (
+      {localStorage.getItem("token") || window.location.pathname !=="/"? (
         <div className="bottom all-width">
           {uris ? (
             <SpotifyWebPlayer
@@ -54,6 +52,8 @@ function App() {
             false
           )}
         </div>
+      ) : (
+        false
       )}
     </urisContext.Provider>
   );
