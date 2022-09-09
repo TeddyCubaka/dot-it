@@ -19,12 +19,12 @@ export default function Search() {
   useEffect(() => {
     const spotifyApi = new SpotifyWebApi();
     spotifyApi.setAccessToken(localStorage.getItem("token"));
-    const topArt = spotifyApi.searchArtists(value);
-    topArt.then((data) => setGenre(data));
-    const album = spotifyApi.searchAlbums(value);
-    album.then((data) => setAlbum(data));
-    const tracks = spotifyApi.searchTracks(value);
-    tracks.then((data) => setTracks(data));
+
+    spotifyApi.searchArtists(value).then((data) => setGenre(data));
+
+    spotifyApi.searchAlbums(value).then((data) => setAlbum(data));
+
+    spotifyApi.searchTracks(value).then((data) => setTracks(data));
   }, [value]);
 
   return (

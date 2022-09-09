@@ -25,12 +25,12 @@ export default function Home() {
   const [playlists, setPlaylists] = useState({});
   const [albums, setAlbums] = useState({});
   const [gospel, setGospel] = useState({});
-  // const [search, setSearch ] = useState({});
+  const [search, setSearch] = useState({});
 
   useEffect(() => {
     const spotifyApi = new SpotifyWebApi();
     spotifyApi.setAccessToken(localStorage.getItem("token"));
-    
+
     spotifyApi.getMyTopArtists().then((data) => setTopArtiste(data));
 
     spotifyApi.getMyTopTracks().then((data) => setGenre(data));
@@ -47,9 +47,14 @@ export default function Home() {
       setGospel(data);
     });
 
-    // spotifyApi.getMe().then((data) => {
-    //   console.log(data);
-    // });
+    spotifyApi.getMySavedTracks().then((data) => {
+      setSearch(data);
+      console.log(data);
+    });
+
+    spotifyApi.getMySavedAlbums().then((data) => {
+      console.log(data);
+    });
   }, []);
 
   return (
@@ -57,11 +62,20 @@ export default function Home() {
       <div>
         <h2>Bonjour</h2>
         <div className="slider hello-collection">
-          <HelloCard elem={topArtiste.items[0]} key={topArtiste.items[0].id} />
-          <HelloCard elem={topArtiste.items[1]} key={topArtiste.items[1].id} />
+          {search.items ? (
+            <HelloCard
+              elem={search}
+              image={search.items[0].track.album.images[0].url}
+              title={"vos titres likés"}
+              key={topArtiste.items[0].id}
+            />
+          ) : (
+            false
+          )}
+          {/* <HelloCard elem={topArtiste.items[1]} key={topArtiste.items[1].id} />
           <HelloCard elem={topArtiste.items[2]} key={topArtiste.items[2].id} />
           <HelloCard elem={topArtiste.items[3]} key={topArtiste.items[3].id} />
-          <HelloCard elem={topArtiste.items[4]} key={topArtiste.items[4].id} />
+          <HelloCard elem={topArtiste.items[4]} key={topArtiste.items[4].id} /> */}
         </div>
         <h2>Vos chansons les plus écoutées</h2>
         <div className="collection-slider">
@@ -92,7 +106,7 @@ export default function Home() {
               <CollectionCard object={playlist} key={playlist.id} />
             ))
           ) : (
-            <div></div> 
+            <div></div>
           )}
         </div>
         <h2>Des albums</h2>

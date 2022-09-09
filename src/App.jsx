@@ -10,7 +10,6 @@ import { urisContext } from "./userContext/urisContext";
 import SpotifyWebPlayer from "react-spotify-web-playback/lib";
 import NavBarre from "./component/basics/navbarre";
 import Playlist from "./component/Playlist";
-import SavedTracks from "./component/savedTrack";
 function App() {
   useEffect(() => {
     const hash = window.location.hash;
@@ -37,7 +36,6 @@ function App() {
           <Route exact path="/home" element={<Home />} />
           <Route path="/search" element={<Search />} />
           <Route path="/playlist" element={<Playlist />} />
-          <Route path="/library" element={<SavedTracks />} />
         </Routes>
       </Router>
       {window.location.pathname == "/" ? (
@@ -50,6 +48,7 @@ function App() {
               token={localStorage.getItem("token")}
               uris={[uris]}
               play={true}
+              initialVolume={"0.5"}
             />
           ) : (
             false

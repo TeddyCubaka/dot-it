@@ -5,10 +5,9 @@ import "./images/disque.png";
 import { urisContext } from "../../userContext/urisContext";
 import {  Link } from "react-router-dom";
 
-export default function HelloCard(elem) {
+export default function HelloCard({elem, image, title}) {
   const { setUris, setLibraryId } = useContext(urisContext);
     return (
-      elem ? 
         <div 
         className="hello-card"
         onClick={()=>{
@@ -17,9 +16,9 @@ export default function HelloCard(elem) {
         >
           <Link to="/playlist" className="link">
             <div className="hello-card-div-img">
-                <img src={elem.elem.images[0].url} alt="" />
+              {image ?  <img src={image} alt="" /> : <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/925px-Unknown_person.jpg" alt=""/>}
             </div>
-            <div className="small-title">{elem.elem.name}</div>
+            <div className="small-title">{title ? title : " "}</div>
           </Link>
           <div 
           className="big-icon-play"
@@ -29,9 +28,6 @@ export default function HelloCard(elem) {
           >
             <Icon as={FaPlayCircle} size="50px" color="red" />
           </div>
-        </div>
-        : <div className="hello-card">
-            <h4>...</h4>
         </div>
     );
 }
