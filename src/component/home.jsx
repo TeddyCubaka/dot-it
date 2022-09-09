@@ -2,6 +2,8 @@ import CollectionCard from "./basics/collection-card";
 import React, { useEffect, useState } from "react";
 import SpotifyWebApi from "spotify-web-api-js";
 import HelloCard from "./basics/hello-card";
+import { Icon } from "@rsuite/icons";
+import { BsEmojiSmileUpsideDown } from "react-icons/bs";
 
 export default function Home() {
   const [topArtiste, setTopArtiste] = useState({
@@ -25,7 +27,7 @@ export default function Home() {
   const [playlists, setPlaylists] = useState({});
   const [albums, setAlbums] = useState({});
   const [gospel, setGospel] = useState({});
-  const [search, setSearch] = useState({});
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     const spotifyApi = new SpotifyWebApi();
@@ -47,36 +49,31 @@ export default function Home() {
       setGospel(data);
     });
 
-    spotifyApi.getMySavedTracks().then((data) => {
-      setSearch(data);
-      console.log(data);
-    });
-
-    spotifyApi.getMySavedAlbums().then((data) => {
-      console.log(data);
+    spotifyApi.getMe().then((data) => {
+      setUser(data);
     });
   }, []);
 
   return (
     <div className="home">
       <div>
-        <h2>Bonjour</h2>
-        <div className="slider hello-collection">
-          {search.items ? (
-            <HelloCard
-              elem={search}
-              image={search.items[0].track.album.images[0].url}
-              title={"vos titres likés"}
-              key={topArtiste.items[0].id}
-            />
-          ) : (
-            false
-          )}
-          {/* <HelloCard elem={topArtiste.items[1]} key={topArtiste.items[1].id} />
-          <HelloCard elem={topArtiste.items[2]} key={topArtiste.items[2].id} />
-          <HelloCard elem={topArtiste.items[3]} key={topArtiste.items[3].id} />
-          <HelloCard elem={topArtiste.items[4]} key={topArtiste.items[4].id} /> */}
-        </div>
+        {user.items ? (
+          <>
+            <h2>Bonjour</h2>
+            <div className="slider hello-collection">
+              <HelloCard
+                elem={user}
+                image={user.items[0].track.album.images[0].url}
+                title={"vos titres likés"}
+                key={topArtiste.items[0].id}
+              />
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="big-title">Bonjour {user.display_name}  <Icon as={BsEmojiSmileUpsideDown} size={"30px"} /></div>
+          </>
+        )}
         <h2>Vos chansons les plus écoutées</h2>
         <div className="collection-slider">
           {genre.items ? (
