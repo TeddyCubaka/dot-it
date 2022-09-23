@@ -1,6 +1,5 @@
 import { Icon } from "@rsuite/icons";
 import { FaHome, FaSearch } from "react-icons/fa";
-import { BiLibrary } from "react-icons/bi";
 import { AiOutlineMenuFold } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
