@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     const hash = window.location.hash;
     if (hash) {
-      localStorage.setItem(
+      localStorage.setItem( 
         "token",
         hash.substring(1).split("&")[0].split("=")[1],
       );
@@ -30,7 +30,7 @@ function App() {
       value={{ uris, setUris, library, setLibrary, libraryId, setLibraryId }}>
       <Router>
         <Header />
-        {localStorage.getItem("token")? <NavBarre /> : <span></span>}
+        {window.location.pathname !=="/" ? <NavBarre /> : <span></span>}
         <Routes>
           <Route exact path="/" element={<Login />} />
           <Route exact path="/home" element={<Home />} />
@@ -38,7 +38,7 @@ function App() {
           <Route path="/playlist" element={<Playlist />} />
         </Routes>
       </Router>
-      {localStorage.getItem("token") || window.location.pathname !=="/"? (
+      {window.location.pathname !=="/"? (
         <div className="bottom all-width">
           {uris ? (
             <SpotifyWebPlayer

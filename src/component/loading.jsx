@@ -1,5 +1,4 @@
 import React from "react";
-import Home from "./home";
 
 export default function Login() {
   const handleClick = () => {
@@ -34,9 +33,7 @@ export default function Login() {
     )}&response_type=token&show_dialog=true`;
   };
 
-  return localStorage.getItem("token") ? (
-    <Home />
-  ) : (
+  return(
     <div className="body">
       <div className="login">
         <div className="big-logo logo disp-flex-col">
