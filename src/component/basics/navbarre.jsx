@@ -27,12 +27,7 @@ export default function NavBarre() {
             <span className="hide strong">Recherche</span>
           </Link>
         </div>
-        <div className="zooming">
-          <Link to="/library" className="link disp-flex-nowrap">
-            <Icon as={ BiLibrary } color="#F5F5F5" size="30px" className="icon-search hide-mobile"/>
-            <span className="hide strong">Bibiothèque</span>
-          </Link>
-        </div>
+        
       </div>
     </div>
   );
